@@ -5,7 +5,7 @@ function limpiarCadena(cadena) {
 }
 
 function limpiarCorreo(correo) {
-  return correo.trim().replace(/['@\s]/g, "");
+  return correo.trim().replace(/['\s]/g, "".trim());
 }
 
 document
@@ -50,5 +50,21 @@ document
     ) {
       alert("Todos los campos son obligatorios");
       return;
+    } else {
+      console.log("Todos los datos estan llenos");
     }
+
+    // Validar que las contraseñas coincidan
+    if (passwordUser !== repeatPasswordUser) {
+      alert("Las contraseñas no coinciden. Por favor, inténtelo de nuevo.");
+      console.log(
+        "Las contraseñas no coinciden. Por favor, inténtelo de nuevo."
+      );
+      return;
+    }
+
+    // Si todo está correcto, enviar el formulario
+    alert("Formulario validado correctamente. Enviando datos...");
+    console.log("Formulario validado correctamente. Enviando datos...");
+    document.getElementById("registroUsuario").submit();
   });
