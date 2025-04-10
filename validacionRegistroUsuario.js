@@ -1,5 +1,3 @@
-alert("Hola mundo");
-
 function limpiarCadena(cadena) {
   return cadena.replace(/['@\s]/g, "").trim(); //Reemplaza caracteres especiales en el formulario por un string vacio
 }
@@ -35,8 +33,6 @@ document
     const repeatPasswordUser = limpiarCadena(
       document.getElementById("repeatPasswordUser").value.trim()
     );
-
-    alert("hola mama");
 
     //validar que los campos no esten vacios
     if (
