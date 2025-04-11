@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   echo (' ' . $fullName . $paswordUser);
 
   //Validación de campos vacíos
-  if (empty($fullName) || empty($ageUser) || empty($emailUser) || empty($dateBrith) || empty($phoneUser) || empty($paswordUser)) {
+  if (empty($fullName) || empty($ageUser) || empty($emailUser) || empty($dateBirth) || empty($phoneUser) || empty($paswordUser)) {
     echo ("Todos los campos son obligatorios");
   }
 
@@ -71,10 +71,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   echo ($fullName . $ageUser . $emailUser . $dateBirth . $phoneUser . $hashed_password . $salt_hex);
 
   $stmt->bind_param("sisssss", $fullName, $ageUser, $emailUser, $dateBirth, $phoneUser, $hashed_password, $salt_hex);
+
+  //Ejecutar la sentencia preparada
   if ($stmt->execute()) {
     echo ("Datos enviados correctamente");
-  }
-  if ($conexion->errno == 1062) { // 1062 es el código de error para entrada duplicada
+  } else if ($conexion->errno == 1062) { // 1062 es el código de error para entrada duplicada
     echo ("El correo electrónico ya está registrado.");
   } else {
     error_log("Error al ejecutar la sentencia SQL: " . $stmt->error . " (Código: " . $conexion->errno . ")");
