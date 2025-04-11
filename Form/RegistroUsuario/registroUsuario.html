@@ -4,50 +4,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
   <title>Registro de Usuarios</title>
 </head>
 
 <body>
-  <header>
-    <h1>Registro Usuarios</h1>
-  </header>
   <main>
-    <form id="registroUsuario" action="registroUsuario.html" method="post">
-      <div>
-        <label for="fullName">Nombre Completo:</label>
-        <input type="text" id="fullName" name="fullName" placeholder="Fernando Marin" required>
-      </div>
-      <div>
-        <label for="ageUser">Que edad tienes:</label>
-        <input type="number" id="ageUser" name="ageUser" placeholder="30" required>
-      </div>
-      <div>
-        <label for="emailUser">Correo:</label>
-        <input type="email" id="emailUser" name="emailUser" placeholder="correo@correo.com" required>
-      </div>
-      <div>
-        <label for="dateBirth">Fecha de Nacimiento:</label>
-        <input type="date" id="dateBirth" name="dateBirth" required>
-      </div>
-      <div>
-        <label for="phoneUser">Teléfono:</label>
-        <input type="tel" id="phoneUser" name="phoneUser" placeholder="3110002222" required>
-      </div>
-      <div>
-        <label for="passwordUser">Contraseña:</label>
-        <input type="password" id="passwordUser" name="passwordUser" required>
-      </div>
-      <div>
-        <label for="repeatPasswordUser">Repite la contraseña</label>
-        <input type="password" id="repeatPasswordUser" name="repeatPasswordUser">
-      </div>
-      <div>
-        <button type="submit">Resgistrarse</button>
-      </div>
+    <form id=" registroUsuario" class="container-sm" style="max-width: 720px;" action="registroUsuario.html"
+      method="post">
+      <fieldset>
+        <legend class="text-center">Registro Usuarios</legend>
+        <div class="mb-3">
+          <label for="fullName" class="form-label">Nombre Completo:</label>
+          <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Fernando Marin" required>
+        </div>
+        <div class="mb-3">
+          <label for="ageUser" class="form-label">Que edad tienes:</label>
+          <input type="number" id="ageUser" name="ageUser" class="form-control" placeholder="30" required>
+        </div>
+        <div class="mb-3">
+          <label for="emailUser" class="form-label">Correo:</label>
+          <input type="email" id="emailUser" name="emailUser" class="form-control" placeholder="correo@correo.com"
+            required>
+        </div>
+        <div class="mb-3">
+          <label for="dateBirth" class="form-label">Fecha de Nacimiento:</label>
+          <input type="date" id="dateBirth" class="form-control" name="dateBirth" required>
+        </div>
+        <div class="mb-3">
+          <label for="phoneUser" class="form-label">Teléfono:</label>
+          <input type="tel" id="phoneUser" name="phoneUser" class="form-control" placeholder="3110002222" required>
+        </div>
+        <div class="mb-3">
+          <label for="passwordUser" class="form-label">Contraseña:</label>
+          <input type="password" id="passwordUser" class="form-control" name="passwordUser" required>
+        </div>
+        <div class="mb-3">
+          <label for="repeatPasswordUser" class="form-label">Repite la contraseña:</label>
+          <input type="password" id="repeatPasswordUser" class="form-control" name="repeatPasswordUser">
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary">Resgistrarse</button>
+        </div>
+      </fieldset>
     </form>
   </main>
 
-  <script src="../../js/validacionRegistroUsuario.js"></script>
+  <script src=" ../../js/validacionRegistroUsuario.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+
 </body>
 
 </html>
