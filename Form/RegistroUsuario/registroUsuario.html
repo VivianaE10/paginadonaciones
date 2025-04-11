@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Usuarios</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+  </head>
 
 <head>
   <meta charset="UTF-8">
@@ -59,4 +70,84 @@
 
 </body>
 
+</html>
+  <body>
+    <header>
+      <h1>Registro Usuarios</h1>
+    </header>
+    <main>
+      <form id="registroUsuario" action="registroUsuario.php" method="post">
+        <div>
+          <label for="fullName">Nombre Completo:</label>
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            placeholder="Fernando Marin"
+            required
+          />
+        </div>
+        <div>
+          <label for="ageUser">Que edad tienes:</label>
+          <input
+            type="number"
+            id="ageUser"
+            name="ageUser"
+            placeholder="30"
+            required
+          />
+        </div>
+        <div>
+          <label for="emailUser">Correo:</label>
+          <input
+            type="email"
+            id="emailUser"
+            name="emailUser"
+            placeholder="correo@correo.com"
+            required
+          />
+        </div>
+        <div>
+          <label for="dateBirth">Fecha de Nacimiento:</label>
+          <input type="date" id="dateBirth" name="dateBirth" required />
+        </div>
+        <div>
+          <label for="phoneUser">Teléfono:</label>
+          <input
+            type="tel"
+            id="phoneUser"
+            name="phoneUser"
+            placeholder="3110002222"
+            required
+          />
+        </div>
+        <div>
+          <label for="passwordUser">Contraseña:</label>
+          <input
+            type="password"
+            id="passwordUser"
+            name="passwordUser"
+            required
+          />
+        </div>
+        <div>
+          <label for="repeatPasswordUser">Repite la contraseña</label>
+          <input
+            type="password"
+            id="repeatPasswordUser"
+            name="repeatPasswordUser"
+          />
+        </div>
+        <div>
+          <button type="submit">Resgistrarse</button>
+        </div>
+      </form>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+    ></script>
+    <script src="validacionRegistroUsuario.js"></script>
+  </body>
 </html>
