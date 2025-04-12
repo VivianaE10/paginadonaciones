@@ -21,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $phoneUser = cleanInput($_POST['phoneUser'] ?? '');
   $paswordUser = ($_POST['passwordUser'] ?? '');
 
-  echo (' ' . $fullName . $paswordUser);
 
   //Validación de campos vacíos
   if (empty($fullName) || empty($ageUser) || empty($emailUser) || empty($dateBirth) || empty($phoneUser) || empty($paswordUser)) {
