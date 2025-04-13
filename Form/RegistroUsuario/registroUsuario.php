@@ -74,6 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   //Ejecutar la sentencia preparada
   if ($stmt->execute()) {
     echo ("Datos enviados correctamente");
+    redirectLogin();
   } else if ($conexion->errno == 1062) { // 1062 es el código de error para entrada duplicada
     echo ("El correo electrónico ya está registrado.");
   } else {
@@ -86,6 +87,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
+function redirectLogin()
+{
+  header("location: ../../FormLogin/index.php");
+  exit();
+}
 
 function CreateConnection()
 {
