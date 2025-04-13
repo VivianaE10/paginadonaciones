@@ -10,21 +10,36 @@
 </head>
 
 <body>
-
-  <form>
-    <div class="container pt-5">
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
-      </div>
-      <a href="/paginadonaciones/Botones/index.php" type="submit" class="btn btn-primary">login</a>
-      <div>
-  </form>
+  <main class="container-sm">
+    <div class="mt-5 d-flex flex-column align-items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#0056D2" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user-scan">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M10 9a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+        <path d="M4 8v-2a2 2 0 0 1 2 -2h2" />
+        <path d="M4 16v2a2 2 0 0 0 2 2h2" />
+        <path d="M16 4h2a2 2 0 0 1 2 2v2" />
+        <path d="M16 20h2a2 2 0 0 0 2 -2v-2" />
+        <path d="M8 16a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2" />
+      </svg>
+      <form class="w-100" style="max-width: 400px;">
+        <div class="pt-5">
+          <legend class="text-center">Inicio de sesión</legend>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Correo registrado</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Ingrese el correo </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="text-center mt-3">
+            <a href="/paginadonaciones/Botones/index.php" type="submit" class="btn btn-primary px-4">login</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 
