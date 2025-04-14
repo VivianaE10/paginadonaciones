@@ -28,11 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   //Verifica que ningun campos vacío
   if (empty($donationAmount) || empty($dateDonation) || empty($holderName) || empty($cardNumber) || empty($expiryDate) || empty($codeCVV)) {
     echo ("Todos los campos son obligatorios");
+    exit();//exit(); para que no continúe intentando ejecutar la consulta cuando los datos están incompletos.
   }
 
   //preparar consulta en SQL 
   $sql = "INSERT INTO registro_donaciones (CantidadDonar, fechaDonacion, NombreTitular, NumeroTarjeta, fechaVencimiento, CodigoCVV) VALUES(?,?,?,?,?,?)";
 
+  // var_dump() y echo funcionan para probar, pero debería quitarlos cuando el codigo esté funcionando
   echo "<pre>";
   var_dump($donationAmount);
   var_dump($dateDonation);
@@ -53,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   echo ($donationAmount . $dateDonation . $holderName . $cardNumber . $expiryDate . $codeCVV);
 
-  $stmt->bind_param("sisssss", $donationAmount, $dateDonation, $holderName, $cardNumber, $expiryDate, $codeCVV);
+  $stmt->bind_param("ssssss", $donationAmount, $dateDonation, $holderName, $cardNumber, $expiryDate, $codeCVV);
 
   //Ejecutar la sentencia preparada
   if ($stmt->execute()) {
