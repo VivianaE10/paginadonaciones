@@ -14,7 +14,7 @@
         <div class="container-fluid">
           <form class="d-flex" role="search">
             <a href="/Form/RegistroUsuario/registroUsuario.html" class="btn me-3" style="--bs-btn-bg: #0056D2; color: #4A90E2;" type="submit">Registro</a>
-            <a href="./FormLogin/index.php" class="btn" style="--bs-btn-bg: #0056D2; color: #4A90E2;" type="submit">Iniciar Sesion</a>
+            <a href="/FormLogin/index.php" class="btn" style="--bs-btn-bg: #0056D2; color: #4A90E2;" type="submit">Iniciar Sesion</a>
           </form>
         </div>
         <div class="container-fluid p-0">

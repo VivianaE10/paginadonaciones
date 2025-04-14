@@ -21,7 +21,7 @@
         <path d="M16 20h2a2 2 0 0 0 2 -2v-2" />
         <path d="M8 16a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2" />
       </svg>
-      <form class="w-100" style="max-width: 400px;">
+      <form class="w-100" style="max-width: 400px;" action="login.php">
         <div class="pt-5">
           <legend class="text-center">Inicio de sesión</legend>
           <div class="mb-3">
@@ -34,7 +34,7 @@
             <input type="password" class="form-control" id="exampleInputPassword1">
           </div>
           <div class="text-center mt-3">
-            <a href="/paginadonaciones/Botones/index.php" type="submit" class="btn btn-primary px-4">login</a>
+            <button type="submit" class="btn btn-primary px-4">login</button>
           </div>
         </div>
       </form>
