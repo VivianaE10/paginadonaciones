@@ -21,17 +21,17 @@
         <path d="M16 20h2a2 2 0 0 0 2 -2v-2" />
         <path d="M8 16a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2" />
       </svg>
-      <form class="w-100" style="max-width: 400px;" action="login.php">
+      <form class="w-100" style="max-width: 400px;" action="login.php" id="login">
         <div class="pt-5">
           <legend class="text-center">Inicio de sesión</legend>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Correo registrado</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="emailUser" class="form-label">Correo registrado</label>
+            <input type="email" class="form-control" id="emailUser" aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">Ingrese el correo </div>
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <label for="passwordUser" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="passwordUser">
           </div>
           <div class="text-center mt-3">
             <button type="submit" class="btn btn-primary px-4">login</button>
@@ -41,6 +41,7 @@
     </div>
   </main>
 
+  <script src="../js/validacionesLogin.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 
 </body>
