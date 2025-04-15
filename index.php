@@ -1,29 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <title>Donaciones.com</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
 
 <body>
-  <div class="container-fluid mt-5">
-    <nav class="navbar bg-body-tertiary">
-      <div class="container-fluid">
-        <form class="d-flex" role="search">
-          <a href="./Form/RegistroUsuario/registroUsuario.html" class="btn me-3" style="--bs-btn-bg: #0056D2; color: #4A90E2;" type="submit">Registro</a>
-          <a href="./FormLogin/index.php" class="btn" style="--bs-btn-bg: #0056D2; color: #4A90E2;" type="submit">Iniciar Sesion</a>
-        </form>
-      </div>
-      <div class="container-fluid p-0">
-        <img src="https://images.pexels.com/photos/6994992/pexels-photo-6994992.jpeg?auto=compress&cs=tinysrgb&w=600" class="img-fluid w-100" alt="imagen">
-      </div>
-  </div>
-  <h2>siiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h2>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+<div class="container card1 border rounder my-3 p-3  py-2 px-5 ">
+<div class="container card2 my-5 border-top-5 ">  
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+    <a class="navbar-brand">Donaciones.com</a>
+      <form class="d-flex" role="search">
+        <button class="btn btn-outline-success" type="submit">Registrar</button>
+        <button class="btn btn-outline-success" type="submit">Iniciar sesion</button>
+      </form>
+    </nav>
 
+      <div class="container p-0 mt-3">
+        <img src="https://images.pexels.com/photos/6994992/pexels-photo-6994992.jpeg?auto=compress&cs=tinysrgb&w=600"
+          class="img-fluid w-100" alt="Voluntariado">
+      </div>
+
+      <h2 class="subtitulo">Entidades Aliadas</h2>
+
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-2 aliadas-card">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/World_Food_Programme_Logo.svg/512px-World_Food_Programme_Logo.svg.png"
+              alt="Programa Mundial de Alimentos" class="img-fluid logo-img">
+            <p>Programa Mundial de Alimentos</p>
+          </div>
+          <div class="col-md-2 aliadas-card">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/UNICEF_Logo.png/512px-UNICEF_Logo.png"
+              alt="UNICEF" class="img-fluid logo-img">
+          </div>
+          <div class="col-md-2 aliadas-card">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Logo_Fundacion_BBVA.svg/512px-Logo_Fundacion_BBVA.svg.png"
+              alt="Fundación BBVA" class="img-fluid logo-img">
+          </div>
+          <div class="col-md-3 aliadas-card">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/The_Global_Fund_logo.svg/512px-The_Global_Fund_logo.svg.png"
+              alt="El Fondo Mundial" class="img-fluid logo-img">
+            <p>Contra el SIDA, tuberculosis y malaria</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
-</html>
