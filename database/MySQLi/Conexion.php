@@ -1,28 +1,35 @@
 <?php
 
-$sever = "yamanote.proxy.rlwy.net"; //hos
-$port = 31557;
-$database = "donaciones";
-$username = "root";
-$password = "uoqkCVjLUzCPAFJLvDkZpdssluARhvXT";
+function CreateConnection()
+{
+  // Datos de conexión a la base de datos
+  $host = "yamanote.proxy.rlwy.net";
+  $port = 31557;
+  $usuario_db = "root"; // Cambia si es necesario
+  $contrasena_db = "uoqkCVjLUzCPAFJLvDkZpdssluARhvXT"; //  Cambia si es necesario
+  $nombre_db = "donaciones"; // Cambia sies necesario
 
-//Genera la conexion a la base de datos en forma de poo
-$mysqli = new mysqli($sever, $username, $password, $database, $port );
+  // Desactivar reporte de errores de mysqli para manejarlo manualmente
+  mysqli_report(MYSQLI_REPORT_OFF);
 
-//comprobar conexion poo
-if ($mysqli->connect_errno)
-die("fallo la conexion: {$mysqli->connect_error}");
+  // Intentar conexión
+  $conexion = new mysqli($host, $usuario_db, $contrasena_db, $nombre_db, $port);
 
-// esto nos ayuda a utilizar cualquier caracter para hacer la primera consulta a la base de datos
-$setnames = $mysqli->prepare("Set names 'utf8'"); 
+  // Verificar errores de conexión explícitamente
+  if ($conexion->connect_error) {
+    error_log("Error de conexión a la base de datos: (" . $conexion->connect_error . ") " . $conexion->connect_error);
+    return false; // Devolver false en caso de error
+  }
 
-//$setnames variable que guarda y ejecuta nuestra consulta
-if ($setnames->execute()) {
-  echo "✅ Conexión exitosa";
-} else {
-  echo "❌ Falló la configuración";
+  // Establecer charset (recomendado)
+  if (!$conexion->set_charset("utf8mb4")) {
+    error_log("Error al establecer el charset UTF-8: " . $conexion->error);
+    // No es crítico, pero bueno saberlo
+  } else {
+    echo ("conexion extitosa");
+  }
+  return $conexion;
 }
-
 
 //-> la flecha significa poo
 // hay dos formas de conectarnos una es con programacion orientada a objetos y la otra la procedural
@@ -31,6 +38,3 @@ if ($setnames->execute()) {
 //forma de comprobar conexion procedural 
 // if(!$mysqli) 
 // die("fallo la conexion" . mysqli_connect_error())
-
-
-

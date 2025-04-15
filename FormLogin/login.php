@@ -1,7 +1,9 @@
 <?php
 
+require_once '../database/MySQLi/Conexion.php';
 
-require_once '../Form/RegistroUsuario/registroUsuario.php';
+$conexion = CreateConnection();
+
 function redirectWelcome()
 {
   header("location: ../Botones/index.php");
@@ -9,7 +11,9 @@ function redirectWelcome()
 }
 
 if ($conexion->connect_error) {
-  echo ('Error de conexion');
+  error_log("Error de conexión de la base de datos: " . $conexion->connect_error);
+  echo ("Error en la conexión. intentalo más tarde");
+  exit();
 } else {
   redirectWelcome();
 }

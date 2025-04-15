@@ -16,8 +16,9 @@
     <div class="container-fluid">
     <a class="navbar-brand">Donaciones.com</a>
       <form class="d-flex" role="search">
-        <button class="btn btn-outline-success" type="submit">Registrar</button>
-        <button class="btn btn-outline-success" type="submit">Iniciar sesion</button>
+        <a href="./Form/RegistroUsuario/registroUsuario.html" class="btn btn-outline-success" type="submit">Registrar</a>
+        <a href="FormLogin/index.html" class="btn btn-outline-success" type="submit">Iniciar sesion</a>
+
       </form>
     </nav>
 
@@ -34,7 +35,7 @@
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/World_Food_Programme_Logo.svg/512px-World_Food_Programme_Logo.svg.png"
               alt="Programa Mundial de Alimentos" class="img-fluid logo-img">
-            <p>Programa Mundial de Alimentos</p>
+            <p>Entidades aliadas</p>
           </div>
           <div class="col-md-2 aliadas-card">
             <img
