@@ -7,7 +7,7 @@
       border-radius: 5px; 
     }
     .card2 {
-      background-color: #4A90E2;
+      background-color: #D1E5FF;
       font-weight: bold;
     }
 
@@ -21,14 +21,6 @@
     .btn-custom {
       background-color: #0056D2;
       color: #fff;
-    }
-
-    .aliadas-card {
-      background-color: #D1E5FF;
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-      margin: 15px;
     }
 
     .logo-img {
