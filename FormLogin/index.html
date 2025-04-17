@@ -24,17 +24,17 @@
         <path d="M16 20h2a2 2 0 0 0 2 -2v-2" />
         <path d="M8 16a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2" />
       </svg>
-      <form class="w-100" style="max-width: 400px;" action="login.php" id="login">
+      <form class="w-100" style="max-width: 400px;" action="login.php" id="login" method="post">
         <div class="pt-5">
           <legend class="text-center">Inicio de sesión</legend>
           <div class="mb-3">
             <label for="emailUser" class="form-label">Correo registrado</label>
-            <input type="email" class="form-control" id="emailUser" aria-describedby="emailHelp">
+            <input type="email" class="form-control" name="emailUser" id="emailUser" aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">Ingrese el correo </div>
           </div>
           <div class="mb-3">
             <label for="passwordUser" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="passwordUser">
+            <input type="password" class="form-control" name="passwordUser" id="passwordUser">
           </div>
           <div class="text-center mt-3">
             <button type="submit" class="btn btn-primary px-4">login</button>
