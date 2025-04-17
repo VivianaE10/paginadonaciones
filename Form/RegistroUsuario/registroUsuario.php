@@ -23,6 +23,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $dateBirth = cleanInput($_POST['dateBirth'] ?? '');
   $phoneUser = cleanInput($_POST['phoneUser'] ?? '');
   $paswordUser = ($_POST['passwordUser'] ?? '');
+  $repeatPasswordUser = ($_POST['repeatPasswordUser'] ?? '');
+
+
+  //validar que las contraseñas sean iguales
+
+  if ($paswordUser !== $repeatPasswordUser) {
+    echo ("Las contraseñas no coinciden.");
+    exit();
+  }
 
 
   //Validación de campos vacíos
