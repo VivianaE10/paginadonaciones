@@ -12,9 +12,6 @@ document
     const donationAmount = limpiarCadena(
       document.getElementById("donationAmount").value.trim()
     );
-    const dateDonation = limpiarCadena(
-      document.getElementById("dateDonation").value.trim()
-    );
     const holderName = limpiarCadena(
       document.getElementById("holderName").value.trim()
     );
@@ -31,7 +28,6 @@ document
     //validar que los campos no esten vacios
     if (
       donationAmount.length === 0 ||
-      dateDonation.length === 0 ||
       holderName.length === 0 ||
       cardNumber.length === 0 ||
       expiryDate.length == 0 ||

@@ -18,7 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   //Obtener los datos enviados desde el formulario de registroUsuario
   //Usamos  null coalescing operator (??) para evitar warnings si no existen
   $donationAmount  = cleanInput($_POST['donationAmount'] ?? '');
-  $dateDonation = cleanInput($_POST['dateDonation'] ?? '');
   $holderName = cleanInput($_POST['holderName'] ?? '');
   $cardNumber = cleanInput($_POST['cardNumber'] ?? '');
   $expiryDate = cleanInput($_POST['expiryDate'] ?? '');
@@ -26,18 +25,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
   //Verifica que ningun campos vacío
-  if (empty($donationAmount) || empty($dateDonation) || empty($holderName) || empty($cardNumber) || empty($expiryDate) || empty($codeCVV)) {
+  if (empty($donationAmount) || empty($holderName) || empty($cardNumber) || empty($expiryDate) || empty($codeCVV)) {
     echo ("Todos los campos son obligatorios");
     exit();//exit(); para que no continúe intentando ejecutar la consulta cuando los datos están incompletos.
   }
 
   //preparar consulta en SQL 
-  $sql = "INSERT INTO registro_donaciones (CantidadDonar, fechaDonacion, NombreTitular, NumeroTarjeta, fechaVencimiento, CodigoCVV) VALUES(?,?,?,?,?,?)";
+  $sql = "INSERT INTO registro_donaciones (CantidadDonar,NombreTitular, NumeroTarjeta, fechaVencimiento, CodigoCVV) VALUES(?,?,?,?,?,?)";
 
   // var_dump() y echo funcionan para probar, pero debería quitarlos cuando el codigo esté funcionando
   echo "<pre>";
   var_dump($donationAmount);
-  var_dump($dateDonation);
   var_dump($holderName);
   var_dump($cardNumber);
   var_dump($expiryDate);
@@ -53,9 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
   }
 
-  echo ($donationAmount . $dateDonation . $holderName . $cardNumber . $expiryDate . $codeCVV);
+  echo ($donationAmount  . $holderName . $cardNumber . $expiryDate . $codeCVV);
 
-  $stmt->bind_param("ssssss", $donationAmount, $dateDonation, $holderName, $cardNumber, $expiryDate, $codeCVV);
+  $stmt->bind_param("sssss", $donationAmount, $holderName, $cardNumber, $expiryDate, $codeCVV);
 
   //Ejecutar la sentencia preparada
   if ($stmt->execute()) {
