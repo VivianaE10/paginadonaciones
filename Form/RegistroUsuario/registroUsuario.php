@@ -2,6 +2,9 @@
 
 require_once '../../database/MySQLi/Conexion.php';
 
+//funcion de php para capturar errores
+session_start();
+
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 $conexion = CreateConnection();
@@ -27,16 +30,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
   //validar que las contraseñas sean iguales
-
   if ($paswordUser !== $repeatPasswordUser) {
-    echo ("Las contraseñas no coinciden.");
+    $_SESSION['error'] = "Las contraseñas no coinciden.";
+    header("Location: registroUser.php");
     exit();
   }
 
 
   //Validación de campos vacíos
   if (empty($fullName) || empty($ageUser) || empty($emailUser) || empty($dateBirth) || empty($phoneUser) || empty($paswordUser)) {
-    echo ("Todos los campos son obligatorios");
+    $_SESSION['error'] = "Todos los campos son obligatorios";
+    header("Location: registroUser.php");
+    exit();
   }
 
   try {

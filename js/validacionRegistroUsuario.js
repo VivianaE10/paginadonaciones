@@ -6,8 +6,6 @@ function limpiarCorreo(correo) {
   return correo.trim().replace(/['\s]/g, "".trim());
 }
 
-alert("Hola mundo");
-
 function validarFormulario(event) {
   event.preventDefault();
   //Odtener y limpiar datos
