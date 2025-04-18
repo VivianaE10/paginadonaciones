@@ -82,7 +82,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo ("Datos enviados correctamente");
     redirectLogin();
   } else if ($conexion->errno == 1062) { // 1062 es el código de error para entrada duplicada
-    echo ("El correo electrónico ya está registrado.");
+    $_SESSION['error'] = "El correo electrónico ya está registrado.";
+    header("Location: registroUser.php");
+    exit();
+    //echo ("El correo electrónico ya está registrado.");
   } else {
     error_log("Error al ejecutar la sentencia SQL: " . $stmt->error . " (Código: " . $conexion->errno . ")");
     echo ("Ocurrió un problema al intentar registrar el usuario (execute failed).");

@@ -6,6 +6,11 @@ function limpiarCorreo(correo) {
   return correo.trim().replace(/['\s]/g, "".trim());
 }
 
+function mostarError(mensaje) {
+  const divError = document.getElementById("mensajeError");
+  divError.textContent = mensaje;
+}
+
 function validarFormulario(event) {
   event.preventDefault();
   //Odtener y limpiar datos
@@ -18,9 +23,7 @@ function validarFormulario(event) {
   const emailUser = limpiarCorreo(
     document.getElementById("emailUser").value.trim()
   );
-  const dateBirth = limpiarCadena(
-    document.getElementById("dateBirth").value.trim()
-  );
+  const dateBirth = document.getElementById("dateBirth").value.trim();
   const phoneUser = limpiarCadena(
     document.getElementById("phoneUser").value.trim()
   );
@@ -45,9 +48,28 @@ function validarFormulario(event) {
     console.log("Todos los datos estan llenos");
   }
 
+  // Validar que la fecha no sea futura
+  const fechaNacimiento = new Date(dateBirth);
+  const hoy = new Date();
+
+  // Normalizar horas para evitar diferencias por la hora del sistema
+  fechaNacimiento.setHours(0, 0, 0, 0);
+  hoy.setHours(0, 0, 0, 0);
+
+  if (fechaNacimiento > hoy) {
+    mostarError("La fecha de nacimiento no puede ser en el futuro.");
+    //alert("La fecha de nacimiento no puede ser en el futuro.");
+    console.log(
+      "Fecha de nacimiento inválida:",
+      fechaNacimiento.toISOString().split("T")[0]
+    );
+    return;
+  }
+
   // Validar que las contraseñas coincidan
   if (passwordUser !== repeatPasswordUser) {
-    alert("Las contraseñas no coinciden. Por favor, inténtelo de nuevo.");
+    mostarError("Las contraseñas no coinciden. Por favor, inténtelo de nuevo.");
+    //alert("Las contraseñas no coinciden. Por favor, inténtelo de nuevo.");
     console.log("Las contraseñas no coinciden. Por favor, inténtelo de nuevo.");
     return;
   }

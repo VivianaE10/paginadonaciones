@@ -20,7 +20,7 @@
 
 <body>
   <main>
-    <form id=" registroUsuario" class="container-sm mt-5" style="max-width: 720px" action="registroUsuario.php"
+    <form id="registroUsuario" class="container-sm mt-5" style="max-width: 720px" action="registroUsuario.php"
       method="post">
       <fieldset>
         <legend class="text-center">Registro Usuarios</legend>
@@ -62,6 +62,8 @@
           unset($_SESSION['error']);
         }
         ?>
+        <!--Alertas de error desde JavaScript-->
+        <div id="mensajeError" style="color: red; font-weight: bold;"></div>
         <div>
           <button type="submit" class="btn btn-primary">Resgistrarse</button>
         </div>
