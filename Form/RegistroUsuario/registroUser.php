@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,7 +59,6 @@
         </div>
         <!--Si el código tienene un error despues de sevalidado en php aparecera en el formulario-->
         <?php
-        session_start();
         if (isset($_SESSION['error'])) {
           echo "<div style='color: red;'>" . $_SESSION['error'] . "</div>";
           unset($_SESSION['error']);
