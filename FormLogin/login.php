@@ -57,6 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($hash_inlogin === $hashBase) {
       session_start();
       $_SESSION['emailUser'] = $usuario;
+      $_SESSION['usuarioID'] = $fila['usuarioID'];  // Guarda el ID del usuario logueado
       echo ("Login exitoso");
       redirectWelcome();
     } else {
