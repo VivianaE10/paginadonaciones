@@ -26,13 +26,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $holderName = cleanInput($_POST['holderName'] ?? '');
   $cardNumber = cleanInput($_POST['cardNumber'] ?? '');
   $expiryDate = cleanInput($_POST['expiryDate'] ?? '');
-  $codeCVV= ($_POST['codeCVV'] ?? '');
+  $codeCVV = ($_POST['codeCVV'] ?? '');
 
 
   //Verifica que ningun campos vacío
   if (empty($donationAmount) || empty($holderName) || empty($cardNumber) || empty($expiryDate) || empty($codeCVV)) {
     echo ("Todos los campos son obligatorios");
-    exit();//exit(); para que no continúe intentando ejecutar la consulta cuando los datos están incompletos.
+    exit(); //exit(); para que no continúe intentando ejecutar la consulta cuando los datos están incompletos.
   }
 
   //preparar consulta en SQL 
@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 function redirectLogin()
 {
-  header("location: /paginadonaciones/index.php");
+  header("location: ../../Botones/index.php");
   exit();
 }
 
