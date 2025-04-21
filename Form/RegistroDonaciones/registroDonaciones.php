@@ -3,7 +3,6 @@
 <?php
 
 session_start();
-
 // Asegurarse que el usuario esté logueado
 $usuarioID = $_SESSION['usuarioID'];
 
