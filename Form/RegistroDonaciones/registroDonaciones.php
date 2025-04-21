@@ -1,6 +1,12 @@
 <!-- se encarga de recibir los datos del formulario de donaciones y guardarlos en una base de datos MySQL. -->
 
 <?php
+
+session_start();
+
+// Asegurarse que el usuario esté logueado
+$usuarioID = $_SESSION['usuarioID'];
+
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 $conexion = CreateConnection();
@@ -31,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   //preparar consulta en SQL 
-  $sql = "INSERT INTO registro_donaciones (CantidadDonar,NombreTitular, NumeroTarjeta, fechaVencimiento, CodigoCVV) VALUES(?,?,?,?,?,?)";
+  $sql = "INSERT INTO registro_donaciones (UsuarioID,CantidadDonar,NombreTitular, NumeroTarjeta, fechaVencimiento, CodigoCVV) VALUES(?,?,?,?,?,?)";
 
   // var_dump() y echo funcionan para probar, pero debería quitarlos cuando el codigo esté funcionando
   echo "<pre>";
@@ -53,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   echo ($donationAmount  . $holderName . $cardNumber . $expiryDate . $codeCVV);
 
-  $stmt->bind_param("sssss", $donationAmount, $holderName, $cardNumber, $expiryDate, $codeCVV);
+  $stmt->bind_param("isssss", $usuarioID, $donationAmount, $holderName, $cardNumber, $expiryDate, $codeCVV);
 
   //Ejecutar la sentencia preparada
   if ($stmt->execute()) {

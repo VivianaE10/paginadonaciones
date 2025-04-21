@@ -5,6 +5,8 @@ require_once '../database/MySQLi/Conexion.php';
 //funcion de php para capturar errores
 session_start();
 
+$_SESSION['UsuarioID'] = $usuarioObtenidoDeLaBase;
+
 function redirectWelcome()
 {
   header("location: ../Botones/index.php");
