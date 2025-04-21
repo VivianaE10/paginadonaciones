@@ -6,6 +6,11 @@ function limpiarCorreo(correo) {
   return correo.trim().replace(/['\s]/g, "".trim());
 }
 
+function mostrarError(mensaje) {
+  const divError = document.getElementById("mensajeError");
+  divError.textContent = mensaje;
+}
+
 document.getElementById("login").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -19,9 +24,11 @@ document.getElementById("login").addEventListener("submit", function (e) {
   );
 
   if (emailUser.length === 0) {
-    alert("Porfavor ingrese el correo");
+    mostrarError("Porfavor ingrese el correo");
+    //alert("Porfavor ingrese el correo");
   } else if (passwordUser.length === 0) {
-    alert("Porfavor ingrese la contraseña");
+    mostrarError("Porfavor ingrese la contraseña");
+    //alert("Porfavor ingrese la contraseña");
   }
 
   document.getElementById("login").submit();

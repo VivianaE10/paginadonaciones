@@ -17,7 +17,7 @@
           <a class="navbar-brand">Donaciones.com</a>
           <form class="d-flex gap-3" role="search">
             <a href="./Form/RegistroUsuario/registroUser.php" class="btn btn-outline-success" type="submit">Registrar</a>
-            <a href="./FormLogin/index.html" class="btn btn-outline-success" type="submit">Iniciar sesion</a>
+            <a href="./FormLogin/index.php" class="btn btn-outline-success" type="submit">Iniciar sesion</a>
           </form>
       </nav>
 

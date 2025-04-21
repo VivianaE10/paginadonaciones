@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,6 +39,13 @@
             <label for="passwordUser" class="form-label">Contraseña</label>
             <input type="password" class="form-control" name="passwordUser" id="passwordUser">
           </div>
+          <?php
+          if (isset($_SESSION['error'])) {
+            echo "<div style='color: red;'>" . $_SESSION['error'] . "</div>";
+            unset($_SESSION['error']);
+          }
+          ?>
+          <div id="mensajeError" style="color: red; font-weight: bold;"></div>
           <div class="text-center mt-3">
             <button type="submit" class="btn btn-primary px-4">login</button>
           </div>

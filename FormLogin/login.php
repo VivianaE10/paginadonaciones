@@ -2,6 +2,9 @@
 
 require_once '../database/MySQLi/Conexion.php';
 
+//funcion de php para capturar errores
+session_start();
+
 function redirectWelcome()
 {
   header("location: ../Botones/index.php");
@@ -57,10 +60,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo ("Login exitoso");
       redirectWelcome();
     } else {
-      echo (" " . " Contraseña incorrecta");
+      $_SESSION['error'] = "Usuario o Contraseña incorrectos";
+      header("Location: index.php");
+      //echo (" " . " Contraseña incorrecta");
     }
   } else {
-    echo (" " . " el correo no esta registardo");
+    $_SESSION['error'] = "el correo no esta registardo";
+    header("Location: index.php");
+    //echo (" " . " el correo no esta registardo");
   }
   // echo "<pre>";
   // var_dump($usuario);
