@@ -22,8 +22,11 @@ document
       document.getElementById("expiryDate").value.trim()
     );
     const codeCVV = limpiarCadena(
-      document.getElementById("codeCVV)").value.trim()
-    );
+      document.getElementById("codeCVV").value.trim()
+    ) {
+      alert("Todos los campos son obligatorios");
+      return;
+    }
   
     //validar que los campos no esten vacios
     if (
