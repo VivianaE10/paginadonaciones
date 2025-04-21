@@ -96,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 function redirectLogin()
 {
-  header("location: ../../FormLogin/index.html");
+  header("location: ../../FormLogin/index.php");
   exit();
 }
 
