@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 function redirectLogin()
 {
-  header("location: ../../FormLogin/index.php");
+  header("location: /paginadonaciones/index.php");
   exit();
 }
 
