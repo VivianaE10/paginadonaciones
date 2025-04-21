@@ -1,6 +1,5 @@
 function limpiarCadena(cadena) {
-  //  // Reemplaza los caracteres especiales pero no toca los números y letras
-  return cadena.replace(/[<>;"']/g, "").trim(); 
+  return cadena.replace(/['@\s]/g, "").trim(); //Reemplaza caracteres especiales en el formulario por un string vacio
 }
 
 document
@@ -39,8 +38,8 @@ document
     }
       
     // Validación del número de tarjeta
-    const tarjetaRegex = /^\d{16}$/;
-    if (!tarjetaRegex.test(cardNumber)) {
+    const tarjetaNumeros = /^\d{15,16}$/;
+    if (!tarjetaNumeros.test(cardNumber)) {
      alert("El número de tarjeta debe tener exactamente 16 dígitos numéricos.");
       return;
     }
@@ -57,5 +56,5 @@ document
     console.log("Formulario validado correctamente. Enviando datos...");
     document.getElementById("registroDonaciones").submit();
   });
-
+  
   //valida un el formulario de donaciones en el navegador antes de que se envíe. Sirve para asegurar que todos los campos estén llenos y limpios antes de enviar los datos al servidor.
