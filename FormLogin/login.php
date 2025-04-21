@@ -8,6 +8,7 @@ session_start();
 function redirectWelcome()
 {
   header("location: ../Botones/index.php");
+  //header("location: pruebalogin.php");
   exit();
 }
 
@@ -57,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($hash_inlogin === $hashBase) {
       session_start();
       $_SESSION['emailUser'] = $usuario;
+      $_SESSION['usuarioID'] = $fila['usuarioID'];  // Guarda el ID del usuario logueado
       echo ("Login exitoso");
       redirectWelcome();
     } else {

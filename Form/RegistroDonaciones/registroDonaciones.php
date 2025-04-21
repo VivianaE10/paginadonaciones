@@ -1,6 +1,10 @@
 <!-- se encarga de recibir los datos del formulario de donaciones y guardarlos en una base de datos MySQL. -->
 
 <?php
+require_once '../../database/MySQLi/Conexion.php';
+
+session_start(); // Esto es obligatorio para acceder a $_SESSION
+
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 $conexion = CreateConnection();
@@ -17,24 +21,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   //capturando los datos
   //Obtener los datos enviados desde el formulario de registroUsuario
   //Usamos  null coalescing operator (??) para evitar warnings si no existen
+  $id_usuario = $_SESSION['usuarioID']; // Aquí recuperas el ID del login
   $donationAmount  = cleanInput($_POST['donationAmount'] ?? '');
   $holderName = cleanInput($_POST['holderName'] ?? '');
   $cardNumber = cleanInput($_POST['cardNumber'] ?? '');
   $expiryDate = cleanInput($_POST['expiryDate'] ?? '');
-  $codeCVV= ($_POST['codeCVV'] ?? '');
+  $codeCVV = ($_POST['codeCVV'] ?? '');
 
 
   //Verifica que ningun campos vacío
   if (empty($donationAmount) || empty($holderName) || empty($cardNumber) || empty($expiryDate) || empty($codeCVV)) {
     echo ("Todos los campos son obligatorios");
-    exit();//exit(); para que no continúe intentando ejecutar la consulta cuando los datos están incompletos.
+    exit(); //exit(); para que no continúe intentando ejecutar la consulta cuando los datos están incompletos.
   }
 
   //preparar consulta en SQL 
-  $sql = "INSERT INTO registro_donaciones (CantidadDonar,NombreTitular, NumeroTarjeta, fechaVencimiento, CodigoCVV) VALUES(?,?,?,?,?,?)";
+  $sql = "INSERT INTO registro_donaciones (UsuarioID, CantidadDonar,NombreTitular, NumeroTarjeta, fechaVencimiento, CodigoCVV) VALUES(?,?,?,?,?,?)";
 
   // var_dump() y echo funcionan para probar, pero debería quitarlos cuando el codigo esté funcionando
   echo "<pre>";
+  var_dump($id_usuario);
   var_dump($donationAmount);
   var_dump($holderName);
   var_dump($cardNumber);
@@ -51,16 +57,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
   }
 
-  echo ($donationAmount  . $holderName . $cardNumber . $expiryDate . $codeCVV);
+  echo ($id_usuario . $donationAmount  . $holderName . $cardNumber . $expiryDate . $codeCVV);
 
-  $stmt->bind_param("sssss", $donationAmount, $holderName, $cardNumber, $expiryDate, $codeCVV);
+  $stmt->bind_param("idsssi", $id_usuario, $donationAmount, $holderName, $cardNumber, $expiryDate, $codeCVV);
 
   //Ejecutar la sentencia preparada
   if ($stmt->execute()) {
-    echo ("Datos enviados correctamente");
-    redirectLogin();
-  } else if ($conexion->errno == 1062) { // 1062 es el código de error para entrada duplicada
-    echo ("El correo electrónico ya está registrado.");
+    echo ("Datos enviados correctamente, muchas gracias por la donación");
   } else {
     error_log("Error al ejecutar la sentencia SQL: " . $stmt->error . " (Código: " . $conexion->errno . ")");
     echo ("Ocurrió un problema al intentar registrar el usuario (execute failed).");
@@ -70,43 +73,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $stmt->close();
 }
 
-
-function redirectLogin()
-{
-  header("location: ../../FormLogin/index.php");
-  exit();
-}
-
-function CreateConnection()
-{
-  // Datos de conexión a la base de datos
-  $host = "yamanote.proxy.rlwy.net";
-  $port = 31557;
-  $usuario_db = "root"; // Cambia si es necesario
-  $contrasena_db = "uoqkCVjLUzCPAFJLvDkZpdssluARhvXT"; //  Cambia si es necesario
-  $nombre_db = "donaciones"; // Cambia sies necesario
-
-  // Desactivar reporte de errores de mysqli para manejarlo manualmente
-  mysqli_report(MYSQLI_REPORT_OFF);
-
-  // Intentar conexión
-  $conexion = new mysqli($host, $usuario_db, $contrasena_db, $nombre_db, $port);
-
-  // Verificar errores de conexión explícitamente
-  if ($conexion->connect_error) {
-    error_log("Error de conexión a la base de datos: (" . $conexion->connect_error . ") " . $conexion->connect_error);
-    return false; // Devolver false en caso de error
-  }
-
-  // Establecer charset (recomendado)
-  if (!$conexion->set_charset("utf8mb4")) {
-    error_log("Error al establecer el charset UTF-8: " . $conexion->error);
-    // No es crítico, pero bueno saberlo
-  } else {
-    echo ("conexion extitosa");
-  }
-  return $conexion;
-}
 function cleanInput($input)
 {
   $input = trim($input); // Elimina espacios en blanco al inicio y final
