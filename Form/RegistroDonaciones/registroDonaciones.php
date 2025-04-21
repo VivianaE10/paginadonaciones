@@ -24,7 +24,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   //Usamos  null coalescing operator (??) para evitar warnings si no existen
   $donationAmount  = cleanInput($_POST['donationAmount'] ?? '');
   $holderName = cleanInput($_POST['holderName'] ?? '');
-  $cardNumber = cleanInput($_POST['cardNumber'] ?? '');
+
+  $cardNumber = $_POST['cardNumber'];
+
+  if (!preg_match('/^\d{15,16}$/', $cardNumber)) {
+      die("El número de tarjeta debe tener entre 15 y 16 dígitos");
+  }
+  
   $expiryDate = cleanInput($_POST['expiryDate'] ?? '');
   $codeCVV= ($_POST['codeCVV'] ?? '');
 
