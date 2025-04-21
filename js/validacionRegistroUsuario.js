@@ -42,7 +42,8 @@ function validarFormulario(event) {
     passwordUser.length === 0 ||
     repeatPasswordUser.length === 0
   ) {
-    alert("Todos los campos son obligatorios");
+    mostarError("Todos los campos son obligatorios")
+    //alert("Todos los campos son obligatorios");
     return;
   } else {
     console.log("Todos los datos estan llenos");
@@ -71,6 +72,20 @@ function validarFormulario(event) {
     mostarError("Las contraseñas no coinciden. Por favor, inténtelo de nuevo.");
     //alert("Las contraseñas no coinciden. Por favor, inténtelo de nuevo.");
     console.log("Las contraseñas no coinciden. Por favor, inténtelo de nuevo.");
+    return;
+  }
+
+  //verificar que la contraseña tenga caracteres especiales
+  const tieneMayuscula = /[A-Z]/.test(passwordUser);
+  const tieneEspecial = /[!@#$%^&*(),.?":{}|<>]/.test(passwordUser);
+
+  if (!tieneMayuscula || !tieneEspecial) {
+
+    let mensaje = "La contraseña debe contener:";
+    if (!tieneMayuscula) mensaje += "\n- Al menos una letra mayúscula.";
+    if (!tieneEspecial) mensaje += "\n- Al menos un carácter especial (como @, #, $, %, etc.).";
+
+    mostarError(mensaje);
     return;
   }
 

@@ -51,7 +51,7 @@ session_start();
         </div>
         <div class="mb-3">
           <label for="passwordUser" class="form-label">Contraseña:</label>
-          <input type="password" id="passwordUser" class="form-control" name="passwordUser" required minlength="8" />
+          <input type="password" id="passwordUser" class="form-control" name="passwordUser" required minlength="8"  />
         </div>
         <div class="mb-3">
           <label for="repeatPasswordUser" class="form-label">Repite la contraseña:</label>
