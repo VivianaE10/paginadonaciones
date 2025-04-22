@@ -1,9 +1,10 @@
 <!-- se encarga de recibir los datos del formulario de donaciones y guardarlos en una base de datos MySQL. -->
 
 <?php
-require_once '../../database/MySQLi/Conexion.php';
 
-session_start(); // Esto es obligatorio para acceder a $_SESSION
+session_start();
+// Asegurarse que el usuario esté logueado
+$usuarioID = $_SESSION['usuarioID'];
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
@@ -24,7 +25,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $id_usuario = $_SESSION['usuarioID']; // Aquí recuperas el ID del login
   $donationAmount  = cleanInput($_POST['donationAmount'] ?? '');
   $holderName = cleanInput($_POST['holderName'] ?? '');
-  $cardNumber = cleanInput($_POST['cardNumber'] ?? '');
+
+  $cardNumber = $_POST['cardNumber'];
+
+  if (!preg_match('/^\d{15,16}$/', $cardNumber)) {
+    die("El número de tarjeta debe tener entre 15 y 16 dígitos");
+  }
+
   $expiryDate = cleanInput($_POST['expiryDate'] ?? '');
   $codeCVV = ($_POST['codeCVV'] ?? '');
 
@@ -36,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   //preparar consulta en SQL 
-  $sql = "INSERT INTO registro_donaciones (UsuarioID, CantidadDonar,NombreTitular, NumeroTarjeta, fechaVencimiento, CodigoCVV) VALUES(?,?,?,?,?,?)";
+  $sql = "INSERT INTO registro_donaciones (UsuarioID,CantidadDonar,NombreTitular, NumeroTarjeta, fechaVencimiento, CodigoCVV) VALUES(?,?,?,?,?,?)";
 
   // var_dump() y echo funcionan para probar, pero debería quitarlos cuando el codigo esté funcionando
   echo "<pre>";
@@ -59,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   echo ($id_usuario . $donationAmount  . $holderName . $cardNumber . $expiryDate . $codeCVV);
 
-  $stmt->bind_param("idsssi", $id_usuario, $donationAmount, $holderName, $cardNumber, $expiryDate, $codeCVV);
+  $stmt->bind_param("isssss", $usuarioID, $donationAmount, $holderName, $cardNumber, $expiryDate, $codeCVV);
 
   //Ejecutar la sentencia preparada
   if ($stmt->execute()) {
@@ -73,6 +80,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $stmt->close();
 }
 
+
+function redirectLogin()
+{
+  header("location: ../../Botones/index.php");
+  exit();
+}
+
+function CreateConnection()
+{
+  // Datos de conexión a la base de datos
+  $host = "yamanote.proxy.rlwy.net";
+  $port = 31557;
+  $usuario_db = "root"; // Cambia si es necesario
+  $contrasena_db = "uoqkCVjLUzCPAFJLvDkZpdssluARhvXT"; //  Cambia si es necesario
+  $nombre_db = "donaciones"; // Cambia sies necesario
+
+  // Desactivar reporte de errores de mysqli para manejarlo manualmente
+  mysqli_report(MYSQLI_REPORT_OFF);
+
+  // Intentar conexión
+  $conexion = new mysqli($host, $usuario_db, $contrasena_db, $nombre_db, $port);
+
+  // Verificar errores de conexión explícitamente
+  if ($conexion->connect_error) {
+    error_log("Error de conexión a la base de datos: (" . $conexion->connect_error . ") " . $conexion->connect_error);
+    return false; // Devolver false en caso de error
+  }
+
+  // Establecer charset (recomendado)
+  if (!$conexion->set_charset("utf8mb4")) {
+    error_log("Error al establecer el charset UTF-8: " . $conexion->error);
+    // No es crítico, pero bueno saberlo
+  } else {
+    echo ("conexion extitosa");
+  }
+  return $conexion;
+}
 function cleanInput($input)
 {
   $input = trim($input); // Elimina espacios en blanco al inicio y final
