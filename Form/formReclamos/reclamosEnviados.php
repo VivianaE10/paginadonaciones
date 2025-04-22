@@ -23,12 +23,8 @@
           <div class="card-body d-flex justify-content-between">
             <p><strong>Entregado con exito </strong>.</p>
             <div class="button text-end">
-<<<<<<< HEAD
-            <a href="../../index.php" class="  btn btn-danger text-end">Inicio</a></div>
-=======
               <a href="../../Botones/index.php" class="  btn btn-danger text-end">Incio</a>
             </div>
->>>>>>> 089ae45e5b6a77403dcdbb8b05ce96077989d55c
           </div>
         </div>
       </div>
