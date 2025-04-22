@@ -1,36 +1,76 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reclamos</title>
-  <!-- Agregar los enlaces a los estilos de Bootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-</head>
-<body>
-  <div class="container mt-5">
+<?php
+
+require_once '../../database/MySQLi/Conexion.php';
+
+//funcion de php para capturar errores
+session_start();
+
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+$conexion = CreateConnection();
+
+
+if ($conexion->connect_error) {
+
+    error_log("Error de conexión de la base de datos: " . $conexion->connect_error);
+    echo ("Error en la conexión. intentalo más tarde");
+    exit();
+  }
+
   
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header">
-          <h2 class="card-title">¡Enviado!</h2>
-          <h5 class="card-title">Gracias por confiar en nosotros</h5>
-          <h5 class="card-title">Pronto nos contactaremos con tigo</h5>
-          </div>
-          <div class="card-body d-flex justify-content-between">
-            <p><strong>Entregado con exito </strong>.</p>
-            <div class="button text-end">
-            <a href="#" class="  btn btn-danger text-end">Incio</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  <!-- Agregar el enlace al script de Bootstrap (requerido para algunos componentes interactivos) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    $id_usuario = $_SESSION['usuarioID']; // Aquí recuperas el ID del login
+    $tipoReclamo = cleanInput($_POST['tipoReclamo'] ?? '');
+    $fechaInconveniente = cleanInput($_POST['fecha'] ?? '');
+    $descripcionReclamo = cleanInput($_POST['message']?? '');
 
-<!--//' OR '1'='1-->
+    if(empty($tipoReclamo) || empty($fechaInconveniente) || empty($descripcionReclamo)){
+        echo("Todos los campos son obligatorios");
+    }
+
+    $sql = "INSERT INTO PQR (CategoriaPQR, fechaInconveniente, usuarioID, DescripcionPQR ) VALUES(?,?,?,?)";
+
+    //Preparar consulta sql
+
+    $stmt = $conexion->prepare($sql);
+
+    echo "<pre>";
+    var_dump($id_usuario);
+    var_dump($tipoReclamo);
+    var_dump($fechaInconveniente);
+    var_dump($descripcionReclamo);
+    echo "</pre>";
+
+
+    $stmt->bind_param("ssis", $tipoReclamo, $fechaInconveniente, $id_usuario ,$descripcionReclamo);
+
+    
+
+    //ejecutar la consulta SQL
+    if($stmt->execute()){
+        echo("PQR enviada correctamente");
+        redirectReclamo();
+    }else{
+        //echo("Los datos no fueron enviados");
+        echo("Error al enviar la PQR: " . $stmt->error);
+        error_log("Error al ejecutar la consulta SQL: " . $stmt->error);
+    }
+    $stmt->close();
+  }
+
+  function redirectReclamo(){
+    header("location: reclamosEnviados.php");
+    exit();
+  }
+
+  function cleanInput($input)
+{
+  $input = trim($input); // Elimina espacios en blanco al inicio y final
+  // Codifica caracteres especiales HTML para prevenir XSS si se imprime directamente en HTML
+  $input = htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
+  return $input;
+}
+
+
+?>
