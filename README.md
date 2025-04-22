@@ -1,5 +1,15 @@
 # paginadonaciones
 
+
+🧑‍🤝‍🧑 Integrantes del proyecto
+
+🎓 Viviana Ospina
+
+🎓 Daniel Arias
+
+🎓 Sergio García
+
+
 <h1 align="center">🤝 Proyecto Donaciones</h1>
 
 <p align="center">
@@ -14,6 +24,11 @@
 
 ---
 
+## 🏹 Objetivo General
+
+Desarrollar una aplicación web que permita gestionar de manera eficiente, segura y accesible el registro y control de donaciones, facilitando la interacción entre donantes y organizaciones beneficiarias, mediante el uso de tecnologías como PHP, JavaScript y MySQL, y aplicando buenas prácticas de desarrollo web y seguridad informática.
+---
+
 ## 📚 Modelo ER de la base de datos
 
 <p align="center">
@@ -22,16 +37,46 @@
 
 ---
 
-## 🖥️ Capturas de pantalla
+## 🖥️ Código JS de validaciones de los formularios
 
-<!-- Reemplaza las rutas con tus imágenes reales -->
-<p align="center">
-  <img src="./images/inicio.png" alt="Pantalla de inicio" width="600"/>
-</p>
+```
+function limpiarCadena(cadena) {
+  return cadena.replace(/['@\s]/g, "").trim(); //Reemplaza caracteres especiales en el formulario por un string vacio
+}
 
-<p align="center">
-  <img src="./images/formulario-donacion.png" alt="Formulario de donación" width="600"/>
-</p>
+function limpiarCorreo(correo) {
+  return correo.trim().replace(/['\s]/g, "".trim());
+}
+
+function mostrarError(mensaje) {
+  const divError = document.getElementById("mensajeError");
+  divError.textContent = mensaje;
+}
+
+document.getElementById("login").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  //Obtener y limpiar datos
+
+  const emailUser = limpiarCorreo(
+    document.getElementById("emailUser").value.trim()
+  );
+  const passwordUser = limpiarCadena(
+    document.getElementById("passwordUser").value.trim()
+  );
+
+  if (emailUser.length === 0) {
+    mostrarError("Porfavor ingrese el correo");
+    //alert("Porfavor ingrese el correo");
+  } else if (passwordUser.length === 0) {
+    mostrarError("Porfavor ingrese la contraseña");
+    //alert("Porfavor ingrese la contraseña");
+  }
+
+  document.getElementById("login").submit();
+});
+
+```
 
 ---
 
@@ -43,17 +88,27 @@
 - 🔒 Seguridad: Validaciones, cifrado y protección contra SQL Injection
 
 ---
+---
+## 📌 Conclusiones
+- El desarrollo del sistema Donaciones permitió aplicar conocimientos prácticos de programación web, fortaleciendo las habilidades técnicas del equipo.
 
-## ⚙️ Instalación y ejecución
+- La implementación de medidas de seguridad demostró ser esencial para garantizar la integridad y confidencialidad de los datos.
 
-```bash
-# Clonar el repositorio
-git clone https://github.com/tu-usuario/donaciones.git
+- El sistema ofrece una solución funcional para la gestión de donaciones, útil para organizaciones sin ánimo de lucro.
 
-# Moverse al directorio del proyecto
-cd donaciones
+- El trabajo colaborativo fue clave para lograr una correcta división de tareas y enriquecer el desarrollo del proyecto.
 
-# Configurar base de datos (importar el archivo .sql en phpMyAdmin)
+- Este proyecto evidencia cómo la tecnología puede ser una herramienta para generar impacto social positivo.
 
-# Iniciar el servidor (ejemplo con XAMPP o similar)
-```
+---
+---
+## 📚 Bibliografía
+FalconMasters. (2020, mayo 7). Validación de formularios con JavaScript [Video]. YouTube. https://www.youtube.com/watch?v=vUEEpn2r7bI
+
+Midudev.(2024, abril 4).Aprende PHP 8 desde cero: Curso para principiantes + Aplicación con Deploy
+[Video]. YouTube. https://www.youtube.com/watch?app=desktop&v=BcGAPkjt_IE
+
+Ayuda con Chat GPT
+
+Descarga de plantillas de html, css y js: https://htmlrev.com/free-bootstrap-templates.html
+---
