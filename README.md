@@ -104,7 +104,6 @@ document.getElementById("login").addEventListener("submit", function (e) {
 ---
 ---
 ## 📚 Bibliografía
-FalconMasters. (2020, mayo 7). Validación de formularios con JavaScript [Video]. YouTube. https://www.youtube.com/watch?v=vUEEpn2r7bI
 
 Midudev.(2024, abril 4).Aprende PHP 8 desde cero: Curso para principiantes + Aplicación con Deploy
 [Video]. YouTube. https://www.youtube.com/watch?app=desktop&v=BcGAPkjt_IE
