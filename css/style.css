@@ -103,7 +103,8 @@ section {
 
 .slide1 {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(../img/bg_banner2.jpg);
+  url(https://media.istockphoto.com/id/2155998573/es/foto/caridad-choca-los-cinco-y-equipo-de-voluntarios-en-el-parque-con-parcela-para-donaci%C3%B3n.jpg?b=1&s=612x612&w=0&k=20&c=sXlzuYF_FprYp6puu5Y2Oqgp-_xjK1ZyRQjTJDXDrB4=);
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -111,7 +112,7 @@ section {
 
 .slide2 {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(../img/bg_banner1.jpg);
+  url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrbxj2eg-JJoXNbAlxaSmXyIphEkZntJkJYA&s);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -236,7 +237,7 @@ section {
 
 #milestone {
   background: linear-gradient(rgba(255, 77, 41, 0.85), rgba(255, 77, 41, 0.85)),
-    url(../img/bg_banner1.jpg);
+    url();
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

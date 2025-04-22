@@ -160,7 +160,7 @@
           <div class="container-fluid">
             <div class="row gy-4">
               <div class="col-lg-4 col-sm-12 bg-cover"
-                style="background-image: url(img/c2.jpg); min-height:300px;">
+                style="background-image: url(https://media.istockphoto.com/id/2155998573/es/foto/caridad-choca-los-cinco-y-equipo-de-voluntarios-en-el-parque-con-parcela-para-donaci%C3%B3n.jpg?b=1&s=612x612&w=0&k=20&c=sXlzuYF_FprYp6puu5Y2Oqgp-_xjK1ZyRQjTJDXDrB4=">
                 <div>
 
                 </div>
@@ -204,15 +204,6 @@
       </div>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/owl.carousel.min.js"></script>
