@@ -14,6 +14,14 @@
 
 ---
 
+## 📚 Modelo ER de la base de datos
+
+<p align="center">
+  <img src="img/Diagrama ER Donaciones.png" alt="Pantalla de inicio" width="600"/>
+</p>
+
+---
+
 ## 🖥️ Capturas de pantalla
 
 <!-- Reemplaza las rutas con tus imágenes reales -->
