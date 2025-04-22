@@ -78,16 +78,16 @@ document.getElementById("login").addEventListener("submit", function (e) {
 });
 
 ```
-## 💾 Código PHP para el registro de donaciones
+## 💾 Código PHP para formularios
 
-Este script maneja el registro de donaciones realizadas por usuarios autenticados. Realiza validaciones de seguridad, inserta datos en la base de datos y gestiona errores comunes. A continuación, se detallan sus principales funciones:
+Este script maneja el registro usuarios autenticados. Realiza validaciones de seguridad, inserta datos en la base de datos y gestiona errores comunes.
 
 ### 📌 Funcionalidades
 
 - Verifica que el usuario haya iniciado sesión mediante `$_SESSION`.
-- Limpia y valida los datos recibidos desde el formulario (como número de tarjeta, fecha, CVV, etc.).
+- Limpia y valida los datos recibidos desde el formulario.
 - Previene inyecciones SQL usando sentencias preparadas (`prepare()` y `bind_param()`).
-- Inserta los datos de la donación en la base de datos.
+- Inserta los datos en la base de datos.
 - Redirige al usuario tras el registro exitoso.
 - Muestra mensajes de error y logs en caso de fallos de conexión o ejecución.
 - Utiliza funciones auxiliares para conexión a la base de datos (`CreateConnection()`), limpieza de datos (`cleanInput()`), y redirección (`redirectLogin()`).
