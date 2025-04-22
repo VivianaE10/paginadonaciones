@@ -9,12 +9,12 @@
 </head>
 
 <body>
-  <div class="container mt-5">
+  <div class="container mt-5"> 
     <div class="row">
       <div class="col-sm-6 mb-3 mb-sm-0">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Registro Donaciones 🩵</h5>
+            <h5 class="card-title">Registro Donaciones🩵</h5>
             <p class="card-text">"Tu ayuda puede cambiar vidas. Gracias por tu apoyo y solidaridad."</p>
             <a href="../Form/RegistroDonaciones/registroDonaciones.html" class="btn btn-primary">Donar</a>
           </div>

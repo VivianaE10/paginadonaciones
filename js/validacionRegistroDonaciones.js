@@ -1,7 +1,8 @@
+console.log("✅ Script cargado correctamente");
+
 function limpiarCadena(cadena) {
   return cadena.replace(/['@\s]/g, "").trim(); //Reemplaza caracteres especiales en el formulario por un string vacio
 }
-
 document
   .getElementById("registroDonaciones")
   .addEventListener("submit", function (e) {
