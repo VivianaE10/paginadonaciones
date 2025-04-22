@@ -20,25 +20,21 @@
             </div>
             <div class="card-body">
               <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre Completo</label>
-                <input type="text" class="form-control" id="nombre" name="nombre"
-                  placeholder="Ingrese su nombre completo" required />
+                <label class="form-label" for="inlineFormSelectPref">Tipo PQRs</label>
+                <select class="form-select" id="tipoReclamo" name="tipoReclamo" required>
+                  <option value="peticion" selected>Petición</option>
+                  <option value="queja">Queja</option>
+                  <option value="recurso">Recurso</option>
+                </select>
               </div>
-              <div class="mb-3">
-                <label for="email" class="form-label">Correo Electrónico</label>
-                <input type="email" class="form-control" id="email" name="email"
-                  placeholder="Ingrese su correo electrónico" required />
-              </div>
-
               <div class="mb-3">
                 <label for="Fecha del inconveniente" class="form-label">Fecha Del Inconveniente</label>
-                <input type="date" class="form-control" id="fecha" name="fechaInconveniente"
-                  placeholder="fecha del inconvenient" required />
+                <input type="date" class="form-control" id="fecha" name="fecha" placeholder="fecha del inconveniente"
+                  required />
               </div>
               <div class="field">
                 <label> Informe del Inconveniente </label>
-                <textarea name="message" id="message" name="message" rows="2" cols="50"
-                  placeholder="Message"></textarea>
+                <textarea name="message" id="message" rows="2" cols="50" placeholder="Message" required></textarea>
               </div>
               <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
