@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="about.png">
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -136,7 +136,6 @@
     </div>
     <div class="footer-bottom text-center">
       <p class="mb-0">Donaciones 2025. Todos los derechos reservados</p> 
-    </div>
   </footer>
   </div>
   <script src="js/jquery.min.js"></script>
