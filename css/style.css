@@ -103,7 +103,7 @@ section {
 
 .slide1 {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-  url(https://media.istockphoto.com/id/2155998573/es/foto/caridad-choca-los-cinco-y-equipo-de-voluntarios-en-el-parque-con-parcela-para-donaci%C3%B3n.jpg?b=1&s=612x612&w=0&k=20&c=sXlzuYF_FprYp6puu5Y2Oqgp-_xjK1ZyRQjTJDXDrB4=);
+  url(../img/pexels-cottonbro-6591165.jpg);
 
   background-size: cover;
   background-position: center;
@@ -112,7 +112,7 @@ section {
 
 .slide2 {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-  url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrbxj2eg-JJoXNbAlxaSmXyIphEkZntJkJYA&s);
+  url(../img/pexels-towfiqu-barbhuiya-3440682-10972831.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

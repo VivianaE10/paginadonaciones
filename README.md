@@ -51,6 +51,7 @@ function limpiarCorreo(correo) {
 function mostrarError(mensaje) {
   const divError = document.getElementById("mensajeError");
   divError.textContent = mensaje;
+
 }
 
 document.getElementById("login").addEventListener("submit", function (e) {
