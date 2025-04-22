@@ -10,6 +10,7 @@ $_SESSION['UsuarioID'] = $usuarioObtenidoDeLaBase;
 function redirectWelcome()
 {
   header("location: ../Botones/index.php");
+  //header("location: pruebalogin.php");
   exit();
 }
 
