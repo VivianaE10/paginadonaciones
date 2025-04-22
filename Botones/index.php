@@ -14,9 +14,9 @@
       <div class="col-sm-6 mb-3 mb-sm-0">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="../Form/RegistroDonaciones/registroDonaciones.html" class="btn btn-primary">Registro Donaciones</a>
+            <h5 class="card-title">Registro Donaciones 🩵</h5>
+            <p class="card-text">"Tu ayuda puede cambiar vidas. Gracias por tu apoyo y solidaridad."</p>
+            <a href="../Form/RegistroDonaciones/registroDonaciones.html" class="btn btn-primary">Donar</a>
           </div>
         </div>
       </div>
