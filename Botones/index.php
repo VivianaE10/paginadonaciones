@@ -14,8 +14,10 @@
       <div class="col-sm-6 mb-3 mb-sm-0">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Registro Donaciones 🩵</h5>
+            <h4 class="card-title">Registro Donaciones 🩵</h4>
+            
             <p class="card-text">"Tu ayuda puede cambiar vidas. Gracias por tu apoyo y solidaridad."</p>
+            <br>
             <a href="../Form/RegistroDonaciones/registroDonaciones.html" class="btn btn-primary">Donar</a>
           </div>
         </div>
@@ -23,8 +25,9 @@
       <div class="col-sm-6">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <h4 class="card-title">Registro PQR</h4>
+            <p class="card-text">"Ayudanos a mejorar".</p>
+            <h5 class="card-text">"Cuentanos como podemos ayudarte".</h5>
             <a href="../Form/formReclamos/reclamos.html" class="btn btn-primary">PQRS</a>
           </div>
         </div>
