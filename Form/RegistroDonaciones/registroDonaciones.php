@@ -22,24 +22,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   //capturando los datos
   //Obtener los datos enviados desde el formulario de registroUsuario
   //Usamos  null coalescing operator (??) para evitar warnings si no existen
-  $id_usuario = $_SESSION['usuarioID']; // Aquí recuperas el ID del login
   $donationAmount  = cleanInput($_POST['donationAmount'] ?? '');
   $holderName = cleanInput($_POST['holderName'] ?? '');
 
   $cardNumber = $_POST['cardNumber'];
-
   if (!preg_match('/^\d{15,16}$/', $cardNumber)) {
-    die("El número de tarjeta debe tener entre 15 y 16 dígitos");
+      die("El número de tarjeta debe tener entre 15 y 16 dígitos");
   }
-
+  
   $expiryDate = cleanInput($_POST['expiryDate'] ?? '');
-  $codeCVV = ($_POST['codeCVV'] ?? '');
+
+  $codeCVV= ($_POST['codeCVV'] ?? '');
 
 
   //Verifica que ningun campos vacío
   if (empty($donationAmount) || empty($holderName) || empty($cardNumber) || empty($expiryDate) || empty($codeCVV)) {
     echo ("Todos los campos son obligatorios");
-    exit(); //exit(); para que no continúe intentando ejecutar la consulta cuando los datos están incompletos.
+    exit();//exit(); para que no continúe intentando ejecutar la consulta cuando los datos están incompletos.
   }
 
   //preparar consulta en SQL 
@@ -47,7 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // var_dump() y echo funcionan para probar, pero debería quitarlos cuando el codigo esté funcionando
   echo "<pre>";
-  var_dump($id_usuario);
   var_dump($donationAmount);
   var_dump($holderName);
   var_dump($cardNumber);
@@ -64,13 +62,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
   }
 
-  echo ($id_usuario . $donationAmount  . $holderName . $cardNumber . $expiryDate . $codeCVV);
+  echo ($donationAmount  . $holderName . $cardNumber . $expiryDate . $codeCVV);
 
   $stmt->bind_param("isssss", $usuarioID, $donationAmount, $holderName, $cardNumber, $expiryDate, $codeCVV);
 
   //Ejecutar la sentencia preparada
   if ($stmt->execute()) {
-    echo ("Datos enviados correctamente, muchas gracias por la donación");
+    echo ("Datos enviados correctamente");
+    redirectLogin();
+  } else if ($conexion->errno == 1062) { // 1062 es el código de error para entrada duplicada
+    echo ("El correo electrónico ya está registrado.");
   } else {
     error_log("Error al ejecutar la sentencia SQL: " . $stmt->error . " (Código: " . $conexion->errno . ")");
     echo ("Ocurrió un problema al intentar registrar el usuario (execute failed).");
@@ -83,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 function redirectLogin()
 {
-  header("location: ../../Botones/index.php");
+  header("location: /paginadonaciones/index.php");
   exit();
 }
 
