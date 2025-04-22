@@ -87,36 +87,31 @@
       <div class="row">
         <div class="col-12">
           <div class="intro">
-            <h6>Our Services</h6>
-            <h1>What We Do?</h1>
-            <p class="mx-auto">Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-              roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old</p>
+            <h1> Qué hacemos?</h1>
+            <p class="mx-auto">Nuestra labor no solo consiste en recibir donaciones, sino en convertir cada aporte en una oportunidad de cambio. Apoyamos causas sociales brindando ayuda a quienes más lo necesitan, con el compromiso de construir un futuro más justo y solidario.</p>
           </div>
         </div>
       </div>
       <div class="row g-4">
         <div class="col-lg-4 col-md-6">
-          <div class="service">
+          <div class="service" style="filter: brightness(85%) saturate(20%) hue-rotate(180deg);">
             <img src="img/icon1.png" alt="">
-            <h5>Digital Marketing</h5>
-            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-              classical Latin literature from</p>
+            <h5>Apoya nuestra causa</h5>
+            <p>Únete a nosotros para hacer la diferencia. Tu donación ayuda a proporcionar recursos esenciales y apoyo a quienes más lo necesitan, creando un futuro mejor para todos</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
-          <div class="service">
+          <div class="service" style="filter: brightness(85%) saturate(20%) hue-rotate(180deg);">
             <img src="img/icon2.png" alt="">
-            <h5>Logo Designing</h5>
-            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-              classical Latin literature from</p>
+            <h5>Haz la diferencia hoy</h5>
+            <p>Tu generosidad transforma vidas. Con tu donación, podemos ofrecer apoyo a quienes enfrentan dificultades, brindando esperanza y oportunidades para un futuro mejor</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
-          <div class="service">
+          <div class="service" style="filter: brightness(85%) saturate(20%) hue-rotate(180deg);">
             <img src="img/icon3.png" alt="">
-            <h5>Buisness consulting</h5>
-            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-              classical Latin literature from</p>
+            <h5>Juntos podemos cambiar vidas</h5>
+            <p>Cada contribución cuenta. Tu ayuda permite que más personas accedan a recursos vitales y puedan superar momentos difíciles. ¡Actúa ahora y sé parte del cambio!</p>
           </div>
         </div>   
       </div>
@@ -127,82 +122,22 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6 text-center">
-            <h4 class="navbar-brand">Prixima<span class="dot">.</span></h4>
-            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-              classical Latin literature from</p>
+            <h4 class="navbar-brand">Donaciones<span class="dot"></span></h4>
+            <p>Tu apoyo tiene un impacto. Podemos crear un futuro más justo y lleno de esperanza para todos.</p>
             <div class="col-auto social-icons">
               <a href="#"><i class='bx bxl-facebook'></i></a>
               <a href="#"><i class='bx bxl-twitter'></i></a>
               <a href="#"><i class='bx bxl-instagram'></i></a>
               <a href="#"><i class='bx bxl-pinterest'></i></a>
             </div>
-            <div class="col-auto conditions-section">
-              <a href="#">privacy</a>
-              <a href="#">terms</a>
-              <a href="#">disclaimer</i></a>
-            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="footer-bottom text-center">
-      <p class="mb-0">Copyright vicpra 2022. All rights Reserved</p> Distributed By <a
-        hrefs="https://themewagon.com">ThemeWagon</a>
+      <p class="mb-0">Donaciones 2025. Todos los derechos reservados</p> 
     </div>
   </footer>
-
-
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-      <div class="modal-content">
-        <div class="modal-body p-0">
-          <div class="container-fluid">
-            <div class="row gy-4">
-              <div class="col-lg-4 col-sm-12 bg-cover"
-                style="background-image: url(https://media.istockphoto.com/id/2155998573/es/foto/caridad-choca-los-cinco-y-equipo-de-voluntarios-en-el-parque-con-parcela-para-donaci%C3%B3n.jpg?b=1&s=612x612&w=0&k=20&c=sXlzuYF_FprYp6puu5Y2Oqgp-_xjK1ZyRQjTJDXDrB4=">
-                <div>
-
-                </div>
-              </div>
-              <div class="col-lg-8">
-                <form class="p-lg-5 col-12 row g-3">
-                  <div>
-                    <h1>Get in touch</h1>
-                    <p>Fell free to contact us and we will get back to you as soon as possible</p>
-                  </div>
-                  <div class="col-lg-6">
-                    <label for="userName" class="form-label">First name</label>
-                    <input type="text" class="form-control" placeholder="Jon" id="userName"
-                      aria-describedby="emailHelp">
-                  </div>
-                  <div class="col-lg-6">
-                    <label for="userName" class="form-label">Last name</label>
-                    <input type="text" class="form-control" placeholder="Doe" id="userName"
-                      aria-describedby="emailHelp">
-                  </div>
-                  <div class="col-12">
-                    <label for="userName" class="form-label">Email address</label>
-                    <input type="email" class="form-control" placeholder="Johndoe@example.com"
-                      id="userName" aria-describedby="emailHelp">
-                  </div>
-                  <div class="col-12">
-                    <label for="exampleInputEmail1" class="form-label">Enter Message</label>
-                    <textarea name="" placeholder="This is looking great and nice."
-                      class="form-control" id="" rows="4"></textarea>
-                  </div>
-
-                  <div class="col-12">
-                    <button type="submit" class="btn btn-brand">Send Message</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
   </div>
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
