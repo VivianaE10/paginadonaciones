@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-  <div class="container mt-4">
+  <div class="container mt-5">
   
     <div class="row justify-content-center">
       <div class="col-md-6">
@@ -21,7 +21,7 @@
           <div class="card-body d-flex justify-content-between">
             <p><strong>Entregado con exito </strong>.</p>
             <div class="button text-end">
-            <a href="../../Botones/index.php" class="  btn btn-danger text-end">Inicio</a></div>
+            <a href="../../index.php" class="  btn btn-danger text-end">Inicio</a></div>
           </div>
         </div>
       </div>
