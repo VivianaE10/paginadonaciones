@@ -27,18 +27,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $cardNumber = $_POST['cardNumber'];
   if (!preg_match('/^\d{15,16}$/', $cardNumber)) {
-      die("El número de tarjeta debe tener entre 15 y 16 dígitos");
+    die("El número de tarjeta debe tener entre 15 y 16 dígitos");
   }
-  
+
   $expiryDate = cleanInput($_POST['expiryDate'] ?? '');
 
-  $codeCVV= ($_POST['codeCVV'] ?? '');
+  $codeCVV = ($_POST['codeCVV'] ?? '');
 
 
   //Verifica que ningun campos vacío
   if (empty($donationAmount) || empty($holderName) || empty($cardNumber) || empty($expiryDate) || empty($codeCVV)) {
     echo ("Todos los campos son obligatorios");
-    exit();//exit(); para que no continúe intentando ejecutar la consulta cuando los datos están incompletos.
+    exit(); //exit(); para que no continúe intentando ejecutar la consulta cuando los datos están incompletos.
   }
 
   //preparar consulta en SQL 
@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 function redirectLogin()
 {
-  header("location: /paginadonaciones/index.php");
+  header("location: ../../Botones/index.php");
   exit();
 }
 
