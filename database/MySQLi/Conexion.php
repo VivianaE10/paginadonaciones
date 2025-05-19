@@ -3,10 +3,10 @@
 function CreateConnection()
 {
   // Datos de conexión a la base de datos
-  $host = "yamanote.proxy.rlwy.net";
-  $port = 31557;
+  $host = "localhost";
+  $port = 3306;
   $usuario_db = "root"; // Cambia si es necesario
-  $contrasena_db = "uoqkCVjLUzCPAFJLvDkZpdssluARhvXT"; //  Cambia si es necesario
+  $contrasena_db = ""; //  Cambia si es necesario
   $nombre_db = "donaciones"; // Cambia sies necesario
 
   // Desactivar reporte de errores de mysqli para manejarlo manualmente
