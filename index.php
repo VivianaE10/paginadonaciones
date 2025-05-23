@@ -14,7 +14,7 @@
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="css/style.css">
 
-  <title>Pagina Donaciones</title>
+  <title>Pagina Donacionesssssssssssssssssssssssssssssssssssssssssssssssss😊</title>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
