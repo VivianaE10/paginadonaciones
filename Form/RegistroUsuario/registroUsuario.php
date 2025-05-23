@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   //Validación de campos vacíos
   if (empty($fullName) || empty($ageUser) || empty($emailUser) || empty($dateBirth) || empty($phoneUser) || empty($paswordUser)) {
-    $_SESSION['error'] = "Todos los campos son obligatorios";
+    $_SESSION['error'] = errorRegistro::camposVacios;
     header("Location: registroUser.php");
     exit();
   }
