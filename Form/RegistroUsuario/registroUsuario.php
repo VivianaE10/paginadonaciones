@@ -1,6 +1,7 @@
 <?php
 
 require_once '../../database/MySQLi/Conexion.php';
+require_once '../../Enums/error_registro.php';
 
 //funcion de php para capturar errores
 session_start();
@@ -31,21 +32,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   //validar que las contraseñas sean iguales
   if ($paswordUser !== $repeatPasswordUser) {
-    $_SESSION['error'] = "Las contraseñas no coinciden.";
+    $_SESSION['error'] = errorRegistro::ContrasenaNoCoincide->value;
     header("Location: registroUser.php");
     exit();
   }
 
   // 👇 Validar que la contraseña no contenga espacios
   if (preg_match('/\s/', $paswordUser)) {
-    $_SESSION['error'] = "La contraseña no debe contener espacios.";
+    $_SESSION['error'] = errorRegistro::ContrasenaEspacios->value;
     header("Location: registroUser.php");
     exit();
   }
 
   //Validación de campos vacíos
   if (empty($fullName) || empty($ageUser) || empty($emailUser) || empty($dateBirth) || empty($phoneUser) || empty($paswordUser)) {
-    $_SESSION['error'] = errorRegistro::camposVacios;
+    $_SESSION['error'] = errorRegistro::camposVacios->value;
     header("Location: registroUser.php");
     exit();
   }
@@ -88,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo ("Datos enviados correctamente");
     redirectLogin();
   } else if ($conexion->errno == 1062) { // 1062 es el código de error para entrada duplicada
-    $_SESSION['error'] = "El correo electrónico ya está registrado.";
+    $_SESSION['error'] = errorRegistro::CorreoDuplicado->value;
     header("Location: registroUser.php");
     exit();
     //echo ("El correo electrónico ya está registrado.");

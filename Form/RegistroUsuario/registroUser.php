@@ -19,29 +19,29 @@ session_start();
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="../../css/style.css"> 
+  <link rel="stylesheet" href="../../css/style.css">
 
   <title>Registro de Usuarios</title>
 </head>
 
 <body>
   <!-- TOP NAV -->
-<div class="top-nav" id="home" style="position: sticky; top: 0; z-index: 1000">
-  <div class="container">
-    <div class="row justify-content-between">
-      <div class="col-auto">
-        <p> <i class='bx bxs-envelope'></i> donaciones@gmail.com</p>
-        <p> <i class='bx bxs-phone-call'></i> 123 456-7890</p>
-      </div>
-      <div class="col-auto social-icons">
-        <a href="#"><i class='bx bxl-facebook'></i></a>
-        <a href="#"><i class='bx bxl-twitter'></i></a>
-        <a href="#"><i class='bx bxl-instagram'></i></a>
-        <a href="#"><i class='bx bxl-pinterest'></i></a>
+  <div class="top-nav" id="home" style="position: sticky; top: 0; z-index: 1000">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-auto">
+          <p> <i class='bx bxs-envelope'></i> donaciones@gmail.com</p>
+          <p> <i class='bx bxs-phone-call'></i> 123 456-7890</p>
+        </div>
+        <div class="col-auto social-icons">
+          <a href="#"><i class='bx bxl-facebook'></i></a>
+          <a href="#"><i class='bx bxl-twitter'></i></a>
+          <a href="#"><i class='bx bxl-instagram'></i></a>
+          <a href="#"><i class='bx bxl-pinterest'></i></a>
+        </div>
       </div>
     </div>
   </div>
-</div>
   <main>
     <form id="registroUsuario" class="container-sm mt-5" style="max-width: 720px" action="registroUsuario.php"
       method="post">
@@ -49,7 +49,7 @@ session_start();
         <legend class="text-center">Registro Usuarios</legend>
         <div class="mb-3">
           <label for="fullName" class="form-label">Nombre Completo:</label>
-          <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Fernando Marin" required />
+          <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Fernando Marin" />
         </div>
         <div class="mb-3">
           <label for="ageUser" class="form-label">Que edad tienes:</label>
@@ -71,13 +71,13 @@ session_start();
         </div>
         <div class="mb-3">
           <label for="passwordUser" class="form-label">Contraseña:</label>
-          <input type="password" id="passwordUser" class="form-control" name="passwordUser" required minlength="8"  />
+          <input type="password" id="passwordUser" class="form-control" name="passwordUser" required minlength="8" />
         </div>
         <div class="mb-3">
           <label for="repeatPasswordUser" class="form-label">Repite la contraseña:</label>
           <input type="password" id="repeatPasswordUser" class="form-control" name="repeatPasswordUser" />
         </div>
-        <!--Si el código tienene un error despues de sevalidado en php aparecera en el formulario-->
+        <!--Si el código tienene un error despues de que sea validado en php aparecera en el formulario-->
         <?php
         if (isset($_SESSION['error'])) {
           echo "<div style='color: red;'>" . $_SESSION['error'] . "</div>";
