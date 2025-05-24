@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   //Buscar el correo existente
-  $sql = "select usuarioID, passwordUser, salt from Usuarios where EmailUsuario = ?";
+  $sql = "select usuarioID, passwordUser, salt, rol_id from Usuarios where EmailUsuario = ?";
 
   $stmt = $conexion->prepare($sql);
   $stmt->bind_param("s", $usuario);
