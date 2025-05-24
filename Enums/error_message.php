@@ -1,0 +1,8 @@
+
+<?php
+    enum ErrorMessages: string
+    {
+      
+
+    }
+?>

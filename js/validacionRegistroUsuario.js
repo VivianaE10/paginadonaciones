@@ -42,7 +42,7 @@ function validarFormulario(event) {
     passwordUser.length === 0 ||
     repeatPasswordUser.length === 0
   ) {
-    mostarError("Todos los campos son obligatorios")
+    mostarError("Todos los campos son obligatorios");
     //alert("Todos los campos son obligatorios");
     return;
   } else {
@@ -80,10 +80,10 @@ function validarFormulario(event) {
   const tieneEspecial = /[!@#$%^&*(),.?":{}|<>]/.test(passwordUser);
 
   if (!tieneMayuscula || !tieneEspecial) {
-
     let mensaje = "La contraseña debe contener:";
     if (!tieneMayuscula) mensaje += "\n- Al menos una letra mayúscula.";
-    if (!tieneEspecial) mensaje += "\n- Al menos un carácter especial (como @, #, $, %, etc.).";
+    if (!tieneEspecial)
+      mensaje += "\n- Al menos un carácter especial (como @, #, $, %, etc.).";
 
     mostarError(mensaje);
     return;
