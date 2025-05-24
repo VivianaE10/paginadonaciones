@@ -51,6 +51,8 @@
           class="btn btn-brand ms-lg-3">Registrarse</a>
         <a href="./FormLogin/index.php"
           class="btn btn-brand ms-lg-3">Login</a>
+        <a href="./campañas/index.php"
+          class="btn btn-brand ms-lg-3">Campañas</a>  
       </div>
     </div>
   </nav>
