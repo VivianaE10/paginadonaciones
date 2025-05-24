@@ -52,7 +52,7 @@
           <div class="card-body">
             <h5 class="card-title">Editar campañas 🎉📚</h5>
             <p class="card-text">Modifica la información de tus campañas activas o crea nuevas</p>
-            <a href="../Form/formReclamos/reclamos.html" class="btn btn-primary" style="color: white">Editar</a>
+            <a href="../Form/FormCampañas/index.php" class="btn btn-primary" style="color: white">Editar</a>
           </div>
         </div>
       </div>
