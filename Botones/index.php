@@ -53,7 +53,7 @@ if (isset($_COOKIE['auth_token'])) {
   </div>
   <div class="container mt-5">
     <div class="row">
-      <?php if (in_array($rol_id, [1, 2])): ?>
+      <?php if (in_array($rol_id, [1, 3])): ?>
         <div class="col-sm-6 mb-3 mb-sm-5">
           <div class="card">
             <div class="card-body">
@@ -73,7 +73,7 @@ if (isset($_COOKIE['auth_token'])) {
           </div>
         </div>
       <?php endif; ?>
-      <?php if (in_array($rol_id, [1, 3])): ?>
+      <?php if (in_array($rol_id, [1, 2])): ?>
         <div class="col-sm-12">
           <div class="card">
             <div class="card-body">
