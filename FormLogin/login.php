@@ -1,21 +1,19 @@
 <?php
 require_once '../database/MySQLi/Conexion.php';
+require_once '../vendor/autoload.php';
 
-if (session_status() === PHP_SESSION_NONE) {
-  session_start();
-}
-
-function redirectWelcome()
-{
-  header("Location: ../Botones/index.php");
-  exit();
-}
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 
 function cleanInput($input)
 {
-  $input = trim($input);
-  $input = htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
-  return $input;
+  return htmlspecialchars(trim($input), ENT_QUOTES, 'UTF-8');
+}
+
+function RedirectWelcome()
+{
+
+  header("Location: ../Botones/index.php");
 }
 
 $conexion = CreateConnection();
@@ -33,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
   }
 
-  $sql = "SELECT usuarioID, passwordUser, salt FROM Usuarios WHERE EmailUsuario = ?";
+  $sql = "SELECT usuarioID, EmailUsuario, passwordUser, salt, rol_id FROM Usuarios WHERE EmailUsuario = ?";
   $stmt = $conexion->prepare($sql);
   $stmt->bind_param("s", $usuario);
   $stmt->execute();
@@ -47,17 +45,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hash_inlogin = hash('sha256', $password . $saltBase);
 
     if ($hash_inlogin === $hashBase) {
-      $_SESSION['emailUser'] = $usuario;
-      $_SESSION['usuarioID'] = $fila['usuarioID'];
-      redirectWelcome(); // No echo antes de esto
+      $usuarioID = $fila['usuarioID'];
+      $rol_id    = $fila['rol_id'];
+
+      // 🔐 Crear token JWT
+      $clave_secreta = "clave_super_segura";
+      $payload = [
+        "usuarioID" => $usuarioID,
+        "emailUser" => $usuario,
+        "rol_id"    => $rol_id,
+        "exp"       => time() + 3600  // 1 hora
+      ];
+
+      $token = JWT::encode($payload, $clave_secreta, 'HS256');
+
+      // 🍪 Guardar el token en una cookie
+      setcookie("auth_token", $token, time() + 3600, "/", "", false, true);
+
+
+      RedirectWelcome();
+      // // Redireccionar según rol
+      // switch ($rol_id) {
+      //   case 1:
+      //     header("Location: ../Botones/index.php");
+      //     break;
+      //   case 2:
+      //     header("Location: ../Empleado/index.php");
+      //     break;
+      //   case 3:
+      //     header("Location: ../Botones/index.php");
+      //     break;
+      //   default:
+      //     header("Location: ../index.php");
+      //     break;
+      // }
+      exit();
     } else {
-      $_SESSION['error'] = "Usuario o contraseña incorrectos";
-      header("Location: index.php");
+      echo "Usuario o contraseña incorrectos.";
       exit();
     }
   } else {
-    $_SESSION['error'] = "El correo no está registrado";
-    header("Location: index.php");
+    echo "El correo no está registrado.";
     exit();
   }
 }
