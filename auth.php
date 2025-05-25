@@ -1,10 +1,11 @@
 <?php
 require_once '../vendor/autoload.php';
+require_once './Enums/general_message.php';
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-$clave_secreta = "clave_super_segura";
+$clave_secreta = general_message::tokenkey->value;
 
 // Leer la cookie
 if (!isset($_COOKIE['auth_token'])) {
