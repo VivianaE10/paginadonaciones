@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           RedirectWelcome();
           break;
         default:
-          header("");
+          header("Location: ../server_error_500.html");
           break;
       }
       exit();

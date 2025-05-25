@@ -2,8 +2,8 @@
 
 $dbCredentials = [
   'host' => 'localhost',
-  'username' => 'root',
-  'password' => '',
+  'username' => 'security',
+  'password' => '123456',
   'database' => 'donaciones',
   'port' => 3306
 ];
