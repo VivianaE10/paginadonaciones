@@ -4,6 +4,7 @@ require_once __DIR__ . '/../constantes/db_config.php';
 require_once __DIR__ . '/../constantes/string_constantes.php';
 require_once __DIR__ . '/../database/MySQLi/Conexion.php';
 require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../Enums/general_message.php';
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
@@ -52,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $rol_id    = $fila['rol_id'];
 
       // 🔐 Crear token JWT
-      $clave_secreta = "clave_super_segura";
+      $clave_secreta = general_message::tokenkey->value;
       $payload = [
         "usuarioID" => $usuarioID,
         "emailUser" => $usuario,
