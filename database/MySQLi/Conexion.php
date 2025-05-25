@@ -1,35 +1,30 @@
 <?php
 
-function CreateConnection()
-{
-  // Datos de conexión a la base de datos
-  $host = "localhost";
-  $port = 3306;
-  $usuario_db = "root"; // Cambia si es necesario
-  $contrasena_db = ""; //  Cambia si es necesario
-  $nombre_db = "donaciones"; // Cambia sies necesario
+include_once __DIR__ . '/../../constantes/string_constantes.php';
+include_once __DIR__ . '/../../constantes/db_config.php';
 
-  // Desactivar reporte de errores de mysqli para manejarlo manualmente
-  mysqli_report(MYSQLI_REPORT_OFF);
+function createConnection(array $dbCredentials): ?mysqli {
+    $host = $dbCredentials[GeneralConfig::HOST_DB->value];
+    $username = $dbCredentials[GeneralConfig::USERNAME_DB->value];
+    $password = $dbCredentials[GeneralConfig::PASSWORD_DB->value];
+    $database = $dbCredentials[GeneralConfig::DATABASE_DB->value];
 
-  // Intentar conexión
-  $conexion = new mysqli($host, $usuario_db, $contrasena_db, $nombre_db, $port);
+    mysqli_report(MYSQLI_REPORT_OFF);
 
-  // Verificar errores de conexión explícitamente
-  if ($conexion->connect_error) {
-    error_log("Error de conexión a la base de datos: (" . $conexion->connect_error . ") " . $conexion->connect_error);
-    return false; // Devolver false en caso de error
-  }
+    $conexion = new mysqli($host, $username, $password, $database);
 
-  // Establecer charset (recomendado)
-  if (!$conexion->set_charset("utf8mb4")) {
-    error_log("Error al establecer el charset UTF-8: " . $conexion->error);
-    // No es crítico, pero bueno saberlo
-  } else {
-    echo ("conexion extitosa");
-  }
-  return $conexion;
+    if ($conexion->connect_error) {
+        error_log("Error de conexión a la base de datos: (" . $conexion->connect_errno . ") " . $conexion->connect_error);
+        return null;
+    }
+
+    if (!$conexion->set_charset("utf8mb4")) {
+        error_log("Error al establecer el charset UTF-8: " . $conexion->error);
+    }
+
+    return $conexion;
 }
+
 
 //-> la flecha significa poo
 // hay dos formas de conectarnos una es con programacion orientada a objetos y la otra la procedural

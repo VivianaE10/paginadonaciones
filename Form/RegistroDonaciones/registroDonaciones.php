@@ -2,13 +2,17 @@
 
 <?php
 
+require_once __DIR__ . '/../../constantes/db_config.php';
+require_once __DIR__ . '/../../constantes/string_constantes.php';
+require_once __DIR__ . '/../../database/MySQLi/Conexion.php';
+
 session_start();
 // Asegurarse que el usuario esté logueado
 $usuarioID = $_SESSION['usuarioID'];
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-$conexion = CreateConnection();
+$conexion = CreateConnection($dbCredentials);
 
 if ($conexion->connect_error) {
 
@@ -88,46 +92,14 @@ function redirectLogin()
   exit();
 }
 
-function CreateConnection()
-{
-  // Datos de conexión a la base de datos
-  $host = "localhost";
-  $port = 3306;
-  $usuario_db = "root"; // Cambia si es necesario
-  $contrasena_db = ""; //  Cambia si es necesario
-  $nombre_db = "donaciones"; // Cambia sies necesario
-
-  // Desactivar reporte de errores de mysqli para manejarlo manualmente
-  mysqli_report(MYSQLI_REPORT_OFF);
-
-  // Intentar conexión
-  $conexion = new mysqli($host, $usuario_db, $contrasena_db, $nombre_db, $port);
-
-  // Verificar errores de conexión explícitamente
-  if ($conexion->connect_error) {
-    error_log("Error de conexión a la base de datos: (" . $conexion->connect_error . ") " . $conexion->connect_error);
-    return false; // Devolver false en caso de error
-  }
-
-  // Establecer charset (recomendado)
-  if (!$conexion->set_charset("utf8mb4")) {
-    error_log("Error al establecer el charset UTF-8: " . $conexion->error);
-    // No es crítico, pero bueno saberlo
-  } else {
-    echo ("conexion extitosa");
-  }
-  return $conexion;
-}
 function cleanInput($input)
 {
-  $input = trim($input); // Elimina espacios en blanco al inicio y final
-  // Codifica caracteres especiales HTML para prevenir XSS si se imprime directamente en HTML
-  $input = htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
+  $input = trim($input); // Elimina espacios en blanco
+  $input = htmlspecialchars($input, ENT_QUOTES, 'UTF-8'); // Protege contra XSS
   return $input;
 }
-
 // - Se recibe la información enviada por POST
 // - Se limpian los campos para evitar XSS
 // - Se valida que todos los campos estén completos
 // - Se insertan los datos en la tabla `registro_donaciones`
-// - Se muestra mensaje de éxito o error según el caso
+// - Se muestra mensaje de éxito o error según el caso f

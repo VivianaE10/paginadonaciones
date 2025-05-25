@@ -1,6 +1,9 @@
 <?php
-require_once '../database/MySQLi/Conexion.php';
-require_once '../vendor/autoload.php';
+
+require_once __DIR__ . '/../constantes/db_config.php';
+require_once __DIR__ . '/../constantes/string_constantes.php';
+require_once __DIR__ . '/../database/MySQLi/Conexion.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
@@ -16,7 +19,7 @@ function RedirectWelcome()
   header("Location: ../Botones/index.php");
 }
 
-$conexion = CreateConnection();
+$conexion = CreateConnection($dbCredentials);
 if (!$conexion) {
   echo "Error en la conexión. Inténtalo más tarde.";
   exit();
@@ -75,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           RedirectWelcome();
           break;
         default:
-          header("Location: ../server_error_500.html");
+          header("");
           break;
       }
       exit();

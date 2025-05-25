@@ -1,13 +1,17 @@
 <?php
 
-require_once '../../database/MySQLi/Conexion.php';
+
+// require_once __DIR__ . '/../../constantes/db_config.php';
+// require_once __DIR__ . '/../../constantes/string_constantes.php';
+// require_once __DIR__ . '/../../database/MySQLi/Conexion.php';
+
 
 //funcion de php para capturar errores
 session_start();
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-$conexion = CreateConnection();
+$conexion = CreateConnection($dbCredentials);
 
 
 if ($conexion->connect_error) {
