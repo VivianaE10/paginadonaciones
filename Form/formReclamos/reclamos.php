@@ -1,9 +1,9 @@
 <?php
 
 
-// require_once __DIR__ . '/../../constantes/db_config.php';
-// require_once __DIR__ . '/../../constantes/string_constantes.php';
-// require_once __DIR__ . '/../../database/MySQLi/Conexion.php';
+require_once __DIR__ . '/../../constantes/db_config.php';
+require_once __DIR__ . '/../../constantes/string_constantes.php';
+require_once __DIR__ . '/../../database/MySQLi/Conexion.php';
 
 
 //funcion de php para capturar errores

@@ -1,6 +1,5 @@
 <?php
 
-
 enum GeneralConfig: string {
   case HOST_DB = "host";
   case USERNAME_DB = "username";
