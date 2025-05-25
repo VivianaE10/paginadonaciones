@@ -63,22 +63,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       setcookie("auth_token", $token, time() + 3600, "/", "", false, true);
 
 
-      RedirectWelcome();
-      // // Redireccionar según rol
-      // switch ($rol_id) {
-      //   case 1:
-      //     header("Location: ../Botones/index.php");
-      //     break;
-      //   case 2:
-      //     header("Location: ../Empleado/index.php");
-      //     break;
-      //   case 3:
-      //     header("Location: ../Botones/index.php");
-      //     break;
-      //   default:
-      //     header("Location: ../index.php");
-      //     break;
-      // }
+      // Redireccionar según rol
+      switch ($rol_id) {
+        case 1:
+          RedirectWelcome();
+          break;
+        case 2:
+          RedirectWelcome();
+          break;
+        case 3:
+          RedirectWelcome();
+          break;
+        default:
+          header("Location: ../server_error_500.html");
+          break;
+      }
       exit();
     } else {
       echo "Usuario o contraseña incorrectos.";
