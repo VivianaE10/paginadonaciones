@@ -32,7 +32,7 @@
 
   <main>
     <div class="mt-3 d-flex flex-column align-items-center">
-      <form id="registroCampanas" class="container-sm mt-1" style="max-width: 720px" action="registroCampanas.php" method="post" enctype="multipart/form-data">
+      <form id="registroCampanas" class="container-sm mt-1" style="max-width: 720px" action="#" method="post" enctype="multipart/form-data">
         <fieldset>
           <legend class="text-center">Registro Campañas</legend>
 
@@ -71,7 +71,10 @@
           </div>
 
           <div class="text-center mt-3 mb-5">
-            <button type="submit" class="btn btn-primary">Guardar</button>
+             <button type="button" class="btn btn-primary" id="guardarBtn">
+                Guardar
+             </button>
+    
           </div>
         </fieldset>
       </form>
