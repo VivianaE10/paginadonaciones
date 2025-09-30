@@ -23,7 +23,7 @@ document
 
     // Redirección
     setTimeout(() => {
-      window.location.href = "/index.html";
+      window.location.href = "../../index.html";
     }, 100);
   });
 //valida un el formulario de donaciones en el navegador antes de que se envíe. Sirve para asegurar que todos los campos estén llenos y limpios antes de enviar los datos al servidor.
