@@ -57,7 +57,7 @@ document
     // Si todo está correcto, enviar el formulario
     alert("Formulario validado correctamente. Enviando datos...");
     console.log("Formulario validado correctamente. Enviando datos...");
-    window.location.href = "/index.html";
+    window.location.href = "../../index.html";
   });
 
 //valida un el formulario de donaciones en el navegador antes de que se envíe. Sirve para asegurar que todos los campos estén llenos y limpios antes de enviar los datos al servidor.
