@@ -36,5 +36,5 @@ document.getElementById("login").addEventListener("submit", function (e) {
   console.log("Login validado correctamente");
 
   // Redirigir
-  window.location.href = "/donaciones-frontend/Botones/index.html";
+  window.location.href = "../Botones/index.html";
 });

@@ -11,5 +11,5 @@ document.getElementById("guardarBtn").addEventListener("click", function () {
   }
 
   // Redirigir a la ruta deseada
-  window.location.href = "/donaciones-frontend/index.html";
+  window.location.href = "/index.html";
 });
