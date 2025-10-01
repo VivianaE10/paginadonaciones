@@ -94,7 +94,7 @@ function validarFormulario(event) {
   console.log("Formulario validado correctamente. Enviando datos...");
 
   // Redirige al siguiente formulario si todas las validaciones son correctas
-  window.location.href = "../../Botones/index.html";
+  window.location.href = "../../botones/index.html";
 }
 
 document
